@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { X } from '@grapecity/spread-excelio';
 
 @Component({
   selector: 'app-dados-table',
@@ -11,8 +12,11 @@ export class DadosTableComponent implements OnInit {
   constructor() { }
 
   dadosColeta: any[];
+  global_wb: any;
 
   ngOnInit() {
+
+
 
     this.dadosColeta = [
       {
