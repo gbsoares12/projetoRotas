@@ -1,58 +1,41 @@
-<div>
-  <h1>Rota de coleta de lixo - Ibirama, Santa Catarina</h1>
-
-
-
-
-
-
-
-
-  <div>
-    <h2> teste parse xsls</h2>
-    <input type="file" name="xlfile" id="xlf" />
-    <pre id="out"></pre>
-    <div id="htmlout"></div>
-  </div>
-
-
-
-
-
-
-
-
-
   <div class="container">
-
-    <!-- Inicio filtros -->
     <div class="ui-g">
-      <div class="ui-g-12">
-        <h1>Pesquisa</h1>
-      </div>
+      
+      <!-- Inicio filtros -->
 
-      <div class="ui-g-12 ui-fluid">
-        <label>Dia a ser pesquisado</label>
-        <input pInputText type="text">
-      </div>
+        <div class="ui-g-12">
+          <h1>Rota de coleta de lixo - Ibirama, Santa Catarina</h1>
+        </div>
 
-      <div class="ui-g-12">
-        <button pButton type="submit" label="Pesquisar"></button>
-      </div>
+        <div class="ui-g-12 ui-fluid">
+          <div class="ui-g-6 ui-fluid">
+              <label>Nome do logradouro</label>
+              <input #nomeRua pInputText type="text" name="nomeRua" >
+          </div>
+          <div class="ui-g-6 ui-fluid">
+              <label>Bairro</label>
+              <input #bairro pInputText type="text" name="bairro">
+          </div>
+        </div>
+
+        <div class="ui-g-12">
+          <button pButton (click)="search(nomeRua.value)" type="submit" label="Pesquisar"></button>
+        </div>
+
     </div>
     <!-- Fim filtros -->
 
     <!-- Inicio Grid -->
     <div class="ui-g">
-      <div class="ui-g-12">
-        <p-table [value]="dadosColeta" [paginator]="true" [rows]="3" [responsive]="true">
+      <div class="ui-g-12 ui-fluid">
+        <p-table [value]="rotas" [paginator]="true" [rows]="3" [responsive]="true" [lazy]="true"
+          emptyMessage="Nenhuma informação encontrada">
           <ng-template pTemplate="header">
             <tr>
-              <th colspan="17">Coleta Convencional</th>
+              <th colspan="14">Rotas Coleta de lixo - Ibirama</th>
             </tr>
             <tr>
-              <th rowspan="3" colspan="2">Nome da Rua</th>
-              <th rowspan="3">Número</th>
+              <th rowspan="4" colspan="2">Nome da Rua</th>
             </tr>
             <tr>
               <th colspan="2">Segunda-Feira</th>
@@ -61,7 +44,6 @@
               <th colspan="2">Quinta-Feira</th>
               <th colspan="2">Sexta-Feira</th>
               <th colspan="2">Sábado</th>
-              <th colspan="2">Km percorrido</th>
             </tr>
             <tr>
               <th>Manhã</th>
@@ -76,36 +58,49 @@
               <th>Tarde</th>
               <th>Manhã</th>
               <th>Tarde</th>
-              <th>Km</th>
-              <th>Km Total</th>
             </tr>
           </ng-template>
 
-          <ng-template pTemplate="body" let-dados>
+          <ng-template pTemplate="body" let-rotas>
             <tr>
-              <td class="col-nomeRua" colspan="2">{{dados.nomeRua}}</td>
+              <td class="col-nomeRua" colspan="2">{{rotas.nomeRua}}</td>
 
-              <td class="col-valores">{{dados.numero}}</td>
-              <td class="col-valores">{{dados.segundaM}}</td>
-              <td class="col-valores">{{dados.segundaT}}</td>
-              <td class="col-valores">{{dados.tercaM}}</td>
-              <td class="col-valores">{{dados.tercaT}}</td>
-              <td class="col-valores">{{dados.quartaM}}</td>
-              <td class="col-valores">{{dados.quartaT}}</td>
-              <td class="col-valores">{{dados.quintaM}}</td>
-              <td class="col-valores">{{dados.quintaT}}</td>
-              <td class="col-valores">{{dados.sextaM}}</td>
-              <td class="col-valores">{{dados.sextaT}}</td>
-              <td class="col-valores">{{dados.sabadoM}}</td>
-              <td class="col-valores">{{dados.sabadoT}}</td>
-              <td class="col-valores">{{dados.km}}</td>
-              <td class="col-valores">{{dados.kmtotal}}</td>
+              <td class="col-valores" [style.color]="rotas.tipoColeta === 'seletiva' ? 'green' : 'blue'">
+                {{rotas.segundaManha}}</td>
+              <td class="col-valores" [style.color]="rotas.tipoColeta === 'seletiva' ? 'green' : 'blue'">
+                {{rotas.segundaTarde}}</td>
+
+              <td class="col-valores" [style.color]="rotas.tipoColeta === 'seletiva' ? 'green' : 'blue'">
+                {{rotas.tercaManha}}</td>
+              <td class="col-valores" [style.color]="rotas.tipoColeta === 'seletiva' ? 'green' : 'blue'">
+                {{rotas.tercaTarde}}</td>
+
+              <td class="col-valores" [style.color]="rotas.tipoColeta === 'seletiva' ? 'green' : 'blue'">
+                {{rotas.quartaManha}}</td>
+              <td class="col-valores" [style.color]="rotas.tipoColeta === 'seletiva' ? 'green' : 'blue'">
+                {{rotas.quartaTarde}}</td>
+
+              <td class="col-valores" [style.color]="rotas.tipoColeta === 'seletiva' ? 'green' : 'blue'">
+                {{rotas.quintaManha}}</td>
+              <td class="col-valores" [style.color]="rotas.tipoColeta === 'seletiva' ? 'green' : 'blue'">
+                {{rotas.quintaTarde}}</td>
+
+              <td class="col-valores" [style.color]="rotas.tipoColeta === 'seletiva' ? 'green' : 'blue'">
+                {{rotas.sextaManha}}</td>
+              <td class="col-valores" [style.color]="rotas.tipoColeta === 'seletiva' ? 'green' : 'blue'">
+                {{rotas.sextaTarde}}</td>
+
+              <td class="col-valores" [style.color]="rotas.tipoColeta === 'seletiva' ? 'green' : 'blue'">
+                {{rotas.sabadoManha}}</td>
+              <td class="col-valores" [style.color]="rotas.tipoColeta === 'seletiva' ? 'green' : 'blue'">
+                {{rotas.sabadoTarde}}</td>
             </tr>
           </ng-template>
         </p-table>
       </div>
 
       <!-- Fim Grid-->
+
       <!-- Inicio Opções Botton -->
       <div class="ui-g-12">
         <a pButton label="Nova Pessoa"></a>
@@ -113,5 +108,3 @@
     </div>
     <!-- Fim Opções Botton -->
   </div>
-
-</div>

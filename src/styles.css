@@ -8,9 +8,9 @@ label {
   font-weight: bold;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 800px) {
   .container {
-    width: 1400px;
+    width: 1000px;
     margin: 0 auto;
   }
 }
@@ -26,7 +26,7 @@ label {
 }
 
 .col-valores {
-  width: 120px;
+  width: 60px;
   text-align: center;
 }
 
