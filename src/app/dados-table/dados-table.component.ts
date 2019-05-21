@@ -1,5 +1,4 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-
 import { RotasIbiramaService, RotasFiltro } from './rotas-ibirama.service';
 import { Rota } from './Rota';
 
@@ -20,6 +19,10 @@ export class DadosTableComponent implements OnInit {
   getRotas(): void {
     this.rotasIbiramaService.getRotas()
       .subscribe(rotas => this.rotas = rotas);
+  }
+
+  teste(){
+    console.log(this.rotas);
   }
 
   search(searchTerm: string) {

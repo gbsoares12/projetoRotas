@@ -13,11 +13,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { DadosTableComponent } from './dados-table/dados-table.component';
+import { UploaderComponent } from './uploader/uploader.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DadosTableComponent
+    DadosTableComponent,
+    UploaderComponent
   ],
   imports: [
     BrowserModule,

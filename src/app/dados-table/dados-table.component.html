@@ -1,110 +1,111 @@
-  <div class="container">
-    <div class="ui-g">
-      
-      <!-- Inicio filtros -->
+<div class="container">
 
-        <div class="ui-g-12">
-          <h1>Rota de coleta de lixo - Ibirama, Santa Catarina</h1>
-        </div>
 
-        <div class="ui-g-12 ui-fluid">
-          <div class="ui-g-6 ui-fluid">
-              <label>Nome do logradouro</label>
-              <input #nomeRua pInputText type="text" name="nomeRua" >
-          </div>
-          <div class="ui-g-6 ui-fluid">
-              <label>Bairro</label>
-              <input #bairro pInputText type="text" name="bairro">
-          </div>
-        </div>
+  <div class="ui-g">
+    <!-- Inicio filtros -->
 
-        <div class="ui-g-12">
-          <button pButton (click)="search(nomeRua.value)" type="submit" label="Pesquisar"></button>
-        </div>
-
+    <div class="ui-g-12">
+      <h1>Rota de coleta de lixo - Ibirama, Santa Catarina</h1>
     </div>
-    <!-- Fim filtros -->
 
-    <!-- Inicio Grid -->
-    <div class="ui-g">
-      <div class="ui-g-12 ui-fluid">
-        <p-table [value]="rotas" [paginator]="true" [rows]="3" [responsive]="true" [lazy]="true"
-          emptyMessage="Nenhuma informação encontrada">
-          <ng-template pTemplate="header">
-            <tr>
-              <th colspan="14">Rotas Coleta de lixo - Ibirama</th>
-            </tr>
-            <tr>
-              <th rowspan="4" colspan="2">Nome da Rua</th>
-            </tr>
-            <tr>
-              <th colspan="2">Segunda-Feira</th>
-              <th colspan="2">Terça-Feira</th>
-              <th colspan="2">Quarta-Feira</th>
-              <th colspan="2">Quinta-Feira</th>
-              <th colspan="2">Sexta-Feira</th>
-              <th colspan="2">Sábado</th>
-            </tr>
-            <tr>
-              <th>Manhã</th>
-              <th>Tarde</th>
-              <th>Manhã</th>
-              <th>Tarde</th>
-              <th>Manhã</th>
-              <th>Tarde</th>
-              <th>Manhã</th>
-              <th>Tarde</th>
-              <th>Manhã</th>
-              <th>Tarde</th>
-              <th>Manhã</th>
-              <th>Tarde</th>
-            </tr>
-          </ng-template>
-
-          <ng-template pTemplate="body" let-rotas>
-            <tr>
-              <td class="col-nomeRua" colspan="2">{{rotas.nomeRua}}</td>
-
-              <td class="col-valores" [style.color]="rotas.tipoColeta === 'seletiva' ? 'green' : 'blue'">
-                {{rotas.segundaManha}}</td>
-              <td class="col-valores" [style.color]="rotas.tipoColeta === 'seletiva' ? 'green' : 'blue'">
-                {{rotas.segundaTarde}}</td>
-
-              <td class="col-valores" [style.color]="rotas.tipoColeta === 'seletiva' ? 'green' : 'blue'">
-                {{rotas.tercaManha}}</td>
-              <td class="col-valores" [style.color]="rotas.tipoColeta === 'seletiva' ? 'green' : 'blue'">
-                {{rotas.tercaTarde}}</td>
-
-              <td class="col-valores" [style.color]="rotas.tipoColeta === 'seletiva' ? 'green' : 'blue'">
-                {{rotas.quartaManha}}</td>
-              <td class="col-valores" [style.color]="rotas.tipoColeta === 'seletiva' ? 'green' : 'blue'">
-                {{rotas.quartaTarde}}</td>
-
-              <td class="col-valores" [style.color]="rotas.tipoColeta === 'seletiva' ? 'green' : 'blue'">
-                {{rotas.quintaManha}}</td>
-              <td class="col-valores" [style.color]="rotas.tipoColeta === 'seletiva' ? 'green' : 'blue'">
-                {{rotas.quintaTarde}}</td>
-
-              <td class="col-valores" [style.color]="rotas.tipoColeta === 'seletiva' ? 'green' : 'blue'">
-                {{rotas.sextaManha}}</td>
-              <td class="col-valores" [style.color]="rotas.tipoColeta === 'seletiva' ? 'green' : 'blue'">
-                {{rotas.sextaTarde}}</td>
-
-              <td class="col-valores" [style.color]="rotas.tipoColeta === 'seletiva' ? 'green' : 'blue'">
-                {{rotas.sabadoManha}}</td>
-              <td class="col-valores" [style.color]="rotas.tipoColeta === 'seletiva' ? 'green' : 'blue'">
-                {{rotas.sabadoTarde}}</td>
-            </tr>
-          </ng-template>
-        </p-table>
+    <div class="ui-g-12 ui-fluid">
+      <div class="ui-g-6 ui-fluid">
+        <label>Nome do logradouro</label>
+        <input #nomeRua pInputText type="text" name="nomeRua">
       </div>
-
-      <!-- Fim Grid-->
-
-      <!-- Inicio Opções Botton -->
-      <div class="ui-g-12">
-        <a pButton label="Nova Pessoa"></a>
+      <div class="ui-g-6 ui-fluid">
+        <label>Bairro</label>
+        <input #bairro pInputText type="text" name="bairro">
       </div>
     </div>
-    <!-- Fim Opções Botton -->
+
+    <div class="ui-g-12">
+      <button pButton (click)="search(nomeRua.value)" type="submit" label="Pesquisar"></button>
+    </div>
+
   </div>
+  <!-- Fim filtros -->
+
+  <!-- Inicio Grid -->
+  <div class="ui-g">
+    <div class="ui-g-12 ui-fluid">
+      <p-table [value]="rotas" [paginator]="true" [rows]="3" [responsive]="true" [lazy]="true"
+        emptyMessage="Nenhuma informação encontrada">
+        <ng-template pTemplate="header">
+          <tr>
+            <th colspan="14">Rotas Coleta de lixo - Ibirama</th>
+          </tr>
+          <tr>
+            <th rowspan="4" colspan="2">Nome da Rua</th>
+          </tr>
+          <tr>
+            <th colspan="2">Segunda-Feira</th>
+            <th colspan="2">Terça-Feira</th>
+            <th colspan="2">Quarta-Feira</th>
+            <th colspan="2">Quinta-Feira</th>
+            <th colspan="2">Sexta-Feira</th>
+            <th colspan="2">Sábado</th>
+          </tr>
+          <tr>
+            <th>Manhã</th>
+            <th>Tarde</th>
+            <th>Manhã</th>
+            <th>Tarde</th>
+            <th>Manhã</th>
+            <th>Tarde</th>
+            <th>Manhã</th>
+            <th>Tarde</th>
+            <th>Manhã</th>
+            <th>Tarde</th>
+            <th>Manhã</th>
+            <th>Tarde</th>
+          </tr>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-rotas>
+          <tr>
+            <td class="col-nomeRua" colspan="2">{{rotas.nome_rua}}</td>
+
+            <td class="col-valores" [style.color]="rotas.tipo_coleta === 'seletiva' ? 'green' : 'blue'">
+              {{rotas.segunda_manha}}</td>
+            <td class="col-valores" [style.color]="rotas.tipo_coleta  === 'seletiva' ? 'green' : 'blue'">
+              {{rotas.segunda_tarde}}</td>
+
+            <td class="col-valores" [style.color]="rotas.tipo_coleta  === 'seletiva' ? 'green' : 'blue'">
+              {{rotas.terca_manha}}</td>
+            <td class="col-valores" [style.color]="rotas.tipo_coleta  === 'seletiva' ? 'green' : 'blue'">
+              {{rotas.terca_tarde}}</td>
+
+            <td class="col-valores" [style.color]="rotas.tipo_coleta  === 'seletiva' ? 'green' : 'blue'">
+              {{rotas.quarta_manha}}</td>
+            <td class="col-valores" [style.color]="rotas.tipo_coleta  === 'seletiva' ? 'green' : 'blue'">
+              {{rotas.quarta_tarde}}</td>
+
+            <td class="col-valores" [style.color]="rotas.tipo_coleta  === 'seletiva' ? 'green' : 'blue'">
+              {{rotas.quinta_manha}}</td>
+            <td class="col-valores" [style.color]="rotas.tipo_coleta  === 'seletiva' ? 'green' : 'blue'">
+              {{rotas.quinta_tarde}}</td>
+
+            <td class="col-valores" [style.color]="rotas.tipo_coleta  === 'seletiva' ? 'green' : 'blue'">
+              {{rotas.sexta_manha}}</td>
+            <td class="col-valores" [style.color]="rotas.tipo_coleta  === 'seletiva' ? 'green' : 'blue'">
+              {{rotas.sexta_tarde}}</td>
+
+            <td class="col-valores" [style.color]="rotas.tipo_coleta  === 'seletiva' ? 'green' : 'blue'">
+              {{rotas.sabado_manha}}</td>
+            <td class="col-valores" [style.color]="rotas.tipo_coleta  === 'seletiva' ? 'green' : 'blue'">
+              {{rotas.sabado_tarde}}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+
+    <!-- Fim Grid-->
+
+    <!-- Inicio Opções Botton -->
+    <div class="ui-g-12">
+      <a pButton (click)="teste()" label="Nova Pessoa"></a>
+    </div>
+  </div>
+  <!-- Fim Opções Botton -->
+</div>

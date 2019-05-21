@@ -37,7 +37,7 @@ export class RotasIbiramaService {
    /* GET rotas whose name contains search term */
    searchRotas(filtro: string): Observable<Rota[]> {
     filtro = filtro.trim();
-  //console.log(filtro);
+    
     // Add safe, URL encoded search parameter if there is a search term
     const options = filtro ?
      { params: new HttpParams().set('name', filtro) } : {};
