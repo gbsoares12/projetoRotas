@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { MessageService } from '../mensagens/message.service';
 import {
   HttpClient, HttpEvent, HttpEventType, HttpProgressEvent,
   HttpRequest, HttpResponse, HttpErrorResponse
@@ -8,14 +7,13 @@ import {
 import { of } from 'rxjs';
 import { catchError, last, map, tap } from 'rxjs/operators';
 
+import { MessageService } from '../mensagens/message.service';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class UploaderService {
   constructor(
     private http: HttpClient,
-    private messenger: MessageService) { }
+    private messenger: MessageService) {}
 
   // If uploading multiple files, change to:
   // upload(files: FileList) {
@@ -37,7 +35,7 @@ export class UploaderService {
     // Create the request object that POSTs the file to an upload endpoint.
     // The `reportProgress` option tells HttpClient to listen and return
     // XHR progress events.
-    const req = new HttpRequest('POST', 'http://localhost:8080/upload', file, {
+    const req = new HttpRequest('POST', '/upload/file', file, {
       reportProgress: true
     });
 
@@ -86,7 +84,7 @@ export class UploaderService {
 
       const message = (error.error instanceof Error) ?
         error.error.message :
-        `server returned code ${error.status} with body "${error.error}"`;
+       `server returned code ${error.status} with body "${error.error}"`;
 
       this.messenger.add(`${userMessage} ${message}`);
 
@@ -100,3 +98,9 @@ export class UploaderService {
   }
 }
 
+
+/*
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/
