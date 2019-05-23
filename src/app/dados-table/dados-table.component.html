@@ -8,115 +8,131 @@
       <h1>Rota de coleta de lixo - Ibirama, Santa Catarina</h1>
     </div>
 
-    <div class="ui-g">
-      <div class="ui-g-4 ui-fluid">
-        <label>Nome da rua</label>
-        <input #nomeRua pInputText type="text"  (keyup)="pesquisar(nomeRua.value, bairro.value)" [pKeyFilter]="blockSpecial" name="nomeRua">
-      </div>
-      <div class="ui-g-4 ui-fluid">
-        <label>Bairro</label>
-        <input #bairro pInputText type="text" (keyup)="pesquisar(nomeRua.value, bairro.value)"  [pKeyFilter]="blockSpecial" name="bairro">
-      </div>
-      <div class="ui-g-4 ui-fluid">
-          <label>Tipo coleta</label>
-          <p-selectButton [options]="coleta" (onChange)="pesquisar(nomeRua.value,bairro.value,$event.value)" multiple="multiple" (ngModel)="tipoColetaSelecionada"></p-selectButton>
-        </div>
-    </div>
     <div class="ui-g-12">
-      <button pButton (click)="teste()" type="submit" label="Pesquisar"></button>
+      <p-fieldset [toggleable]="true">
+          <p-header>Filtros</p-header>
+        <div class="row-1 ui-g-6 ui-fluid">
+          <label>Nome da rua</label>
+          <input #nomeRua pInputText type="text" (keyup)="pesquisar(nomeRua.value, bairro.value)"
+            [pKeyFilter]="blockSpecial" name="nomeRua">
+        </div>
+        <div class="row-2 ui-g-6 ui-fluid">
+          <label>Bairro</label>
+          <input #bairro pInputText type="text" (keyup)="pesquisar(nomeRua.value, bairro.value)"
+            [pKeyFilter]="blockSpecial" name="bairro">
+        </div>
+        <div class="row-3 ui-g-6 ui-fluid">
+          <label>Tipo coleta</label>
+          <p-selectButton [options]="coleta" (onChange)="pesquisar(nomeRua.value,bairro.value,$event.value)"
+            multiple="multiple" (ngModel)="tipoColetaSelecionada"></p-selectButton>
+        </div>
+      </p-fieldset>
     </div>
-  </div>
-  <!-- Fim filtros -->
+    <!-- Fim filtros -->
 
-  <!-- Inicio Grid -->
-  <div class="ui-g">
-    <div class="ui-g-12 ui-fluid">
-      <p-table [value]="rotas" [paginator]="true" [rows]="3" [responsive]="true" [resizableColumns]="true" columnResizeMode="expand">
-        <ng-template pTemplate="header">
-          <tr>
-            <th pResizableColumn colspan="14">Rotas Coleta de lixo - Ibirama</th>
-          </tr>
-          <tr>
-            <th pResizableColumn rowspan="4" colspan="2">Nome da Rua</th>
-          </tr>
-          <tr>
-            <th pResizableColumn colspan="2">Segunda-Feira</th>
-            <th pResizableColumn colspan="2">Terça-Feira</th>
-            <th pResizableColumn colspan="2">Quarta-Feira</th>
-            <th pResizableColumn colspan="2">Quinta-Feira</th>
-            <th pResizableColumn colspan="2">Sexta-Feira</th>
-            <th pResizableColumn colspan="2">Sábado</th>
-          </tr>
-          <tr>
-            <th>Manhã</th>
-            <th>Tarde</th>
-            <th>Manhã</th>
-            <th>Tarde</th>
-            <th>Manhã</th>
-            <th>Tarde</th>
-            <th>Manhã</th>
-            <th>Tarde</th>
-            <th>Manhã</th>
-            <th>Tarde</th>
-            <th>Manhã</th>
-            <th>Tarde</th>
-          </tr>
-        </ng-template>
+    <!-- Inicio Grid -->
+    <div class="ui-g">
+      <div class="ui-g-12 ui-fluid">
+        <p-table [value]="rotas" [paginator]="true" [rows]="3" [responsive]="true" [resizableColumns]="true"
+          columnResizeMode="expand">
+          <ng-template pTemplate="header">
+            <tr>
+              <th pResizableColumn colspan="14">Rotas Coleta de lixo - Ibirama</th>
+            </tr>
+            <tr>
+              <th pResizableColumn rowspan="4" colspan="2">Nome da Rua</th>
+            </tr>
+            <tr>
+              <th pResizableColumn colspan="2">Segunda-Feira</th>
+              <th pResizableColumn colspan="2">Terça-Feira</th>
+              <th pResizableColumn colspan="2">Quarta-Feira</th>
+              <th pResizableColumn colspan="2">Quinta-Feira</th>
+              <th pResizableColumn colspan="2">Sexta-Feira</th>
+              <th pResizableColumn colspan="2">Sábado</th>
+            </tr>
+            <tr>
+              <th>Manhã</th>
+              <th>Tarde</th>
+              <th>Manhã</th>
+              <th>Tarde</th>
+              <th>Manhã</th>
+              <th>Tarde</th>
+              <th>Manhã</th>
+              <th>Tarde</th>
+              <th>Manhã</th>
+              <th>Tarde</th>
+              <th>Manhã</th>
+              <th>Tarde</th>
+            </tr>
+          </ng-template>
 
-        <ng-template pTemplate="body" let-rotas>
-          <tr>
-            <td class="col-nomeRua ui-resizable-column" colspan="2">
-              <span class="ui-column-title">Nome da Rua</span>
-              {{rotas.nome_rua}}</td>
+          <ng-template pTemplate="body" let-rotas>
+            <tr>
+              <td class="col-nomeRua ui-resizable-column" colspan="2">
+                <span class="ui-column-title">Nome da Rua</span>
+                <span>{{rotas.nome_rua}}</span>  
+              </td>
 
-            <td class="col-valores ui-resizable-column" [style.color]="rotas.tipo_coleta === 'SELETIVA' ? 'green' : 'blue'">
-              <span class="ui-column-title">Segunda Manhã</span>
-              {{rotas.segunda_manha}}</td>
-            <td class="col-valores ui-resizable-column" [style.color]="rotas.tipo_coleta  === 'SELETIVA' ? 'green' : 'blue'">
-              <span class="ui-column-title">Segunda Tarde</span>
-              {{rotas.segunda_tarde}}</td>
+              <td class="col-valores ui-resizable-column"
+                [style.color]="rotas.tipo_coleta === 'SELETIVA' ? 'green' : 'blue'">
+                <span class="ui-column-title">Segunda Manhã</span>
+                {{rotas.segunda_manha}}</td>
+              <td class="col-valores ui-resizable-column"
+                [style.color]="rotas.tipo_coleta  === 'SELETIVA' ? 'green' : 'blue'">
+                <span class="ui-column-title">Segunda Tarde</span>
+                {{rotas.segunda_tarde}}</td>
 
-            <td class="col-valores ui-resizable-column" [style.color]="rotas.tipo_coleta  === 'SELETIVA' ? 'green' : 'blue'">
-              <span class="ui-column-title">Terça Manhã</span>
-              {{rotas.terca_manha}}</td>
-            <td class="col-valores ui-resizable-column" [style.color]="rotas.tipo_coleta  === 'SELETIVA' ? 'green' : 'blue'">
-              <span class="ui-column-title">Terça Tarde</span>
-              {{rotas.terca_tarde}}</td>
+              <td class="col-valores ui-resizable-column"
+                [style.color]="rotas.tipo_coleta  === 'SELETIVA' ? 'green' : 'blue'">
+                <span class="ui-column-title">Terça Manhã</span>
+                {{rotas.terca_manha}}</td>
+              <td class="col-valores ui-resizable-column"
+                [style.color]="rotas.tipo_coleta  === 'SELETIVA' ? 'green' : 'blue'">
+                <span class="ui-column-title">Terça Tarde</span>
+                {{rotas.terca_tarde}}</td>
 
-            <td class="col-valores ui-resizable-column" [style.color]="rotas.tipo_coleta  === 'SELETIVA' ? 'green' : 'blue'">
-              <span class="ui-column-title">Quarta Manhã</span>
-              {{rotas.quarta_manha}}</td>
+              <td class="col-valores ui-resizable-column"
+                [style.color]="rotas.tipo_coleta  === 'SELETIVA' ? 'green' : 'blue'">
+                <span class="ui-column-title">Quarta Manhã</span>
+                {{rotas.quarta_manha}}</td>
 
-            <td class="col-valores ui-resizable-column" [style.color]="rotas.tipo_coleta  === 'SELETIVA' ? 'green' : 'blue'">
-              <span class="ui-column-title">Quarta Tarde</span>
-              {{rotas.quarta_tarde}}</td>
+              <td class="col-valores ui-resizable-column"
+                [style.color]="rotas.tipo_coleta  === 'SELETIVA' ? 'green' : 'blue'">
+                <span class="ui-column-title">Quarta Tarde</span>
+                {{rotas.quarta_tarde}}</td>
 
-            <td class="col-valores ui-resizable-column" [style.color]="rotas.tipo_coleta  === 'SELETIVA' ? 'green' : 'blue'">
-              <span class="ui-column-title">Quinta Manhã</span>
-              {{rotas.quinta_manha}}</td>
+              <td class="col-valores ui-resizable-column"
+                [style.color]="rotas.tipo_coleta  === 'SELETIVA' ? 'green' : 'blue'">
+                <span class="ui-column-title">Quinta Manhã</span>
+                {{rotas.quinta_manha}}</td>
 
-            <td class="col-valores ui-resizable-column" [style.color]="rotas.tipo_coleta  === 'SELETIVA' ? 'green' : 'blue'">
-              <span class="ui-column-title">Quinta Tarde</span>
-              {{rotas.quinta_tarde}}</td>
+              <td class="col-valores ui-resizable-column"
+                [style.color]="rotas.tipo_coleta  === 'SELETIVA' ? 'green' : 'blue'">
+                <span class="ui-column-title">Quinta Tarde</span>
+                {{rotas.quinta_tarde}}</td>
 
-            <td class="col-valores ui-resizable-column" [style.color]="rotas.tipo_coleta  === 'SELETIVA' ? 'green' : 'blue'">
-              <span class="ui-column-title">Sexta Manhã</span>
-              {{rotas.sexta_manha}}</td>
+              <td class="col-valores ui-resizable-column"
+                [style.color]="rotas.tipo_coleta  === 'SELETIVA' ? 'green' : 'blue'">
+                <span class="ui-column-title">Sexta Manhã</span>
+                {{rotas.sexta_manha}}</td>
 
-            <td class="col-valores ui-resizable-column" [style.color]="rotas.tipo_coleta  === 'SELETIVA' ? 'green' : 'blue'">
-              <span class="ui-column-title">Sexta Tarde</span>
-              {{rotas.sexta_tarde}}</td>
+              <td class="col-valores ui-resizable-column"
+                [style.color]="rotas.tipo_coleta  === 'SELETIVA' ? 'green' : 'blue'">
+                <span class="ui-column-title">Sexta Tarde</span>
+                {{rotas.sexta_tarde}}</td>
 
-            <td class="col-valores ui-resizable-column" [style.color]="rotas.tipo_coleta  === 'SELETIVA' ? 'green' : 'blue'">
-              <span class="ui-column-title">Sábado Manhã</span>
-              {{rotas.sabado_manha}}</td>
+              <td class="col-valores ui-resizable-column"
+                [style.color]="rotas.tipo_coleta  === 'SELETIVA' ? 'green' : 'blue'">
+                <span class="ui-column-title">Sábado Manhã</span>
+                {{rotas.sabado_manha}}</td>
 
-            <td class="col-valores ui-resizable-column" [style.color]="rotas.tipo_coleta  === 'SELETIVA' ? 'green' : 'blue'">
-              <span class="ui-column-title">Sábado Tarde</span>
-              {{rotas.sabado_tarde}}</td>
-          </tr>
-        </ng-template>
-      </p-table>
+              <td class="col-valores ui-resizable-column"
+                [style.color]="rotas.tipo_coleta  === 'SELETIVA' ? 'green' : 'blue'">
+                <span class="ui-column-title">Sábado Tarde</span>
+                {{rotas.sabado_tarde}}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+      <!-- Fim Grid-->
     </div>
-    <!-- Fim Grid-->
-  </div>

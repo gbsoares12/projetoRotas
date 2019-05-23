@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { UploaderComponent } from './uploader/uploader.component';
 import { DadosTableComponent } from './dados-table/dados-table.component';
@@ -17,6 +18,9 @@ import { TableModule } from 'primeng/table';
 import { KeyFilterModule } from 'primeng/keyfilter';
 import { InformativosComponent } from './informativos/informativos.component';
 import { SelectButtonModule } from 'primeng/selectbutton';
+import { FieldsetModule } from 'primeng/fieldset';
+import { NomesExtensosComponent } from './dados-table/nomes-extensos/nomes-extensos.component';
+
 
 
 @NgModule({
@@ -24,7 +28,8 @@ import { SelectButtonModule } from 'primeng/selectbutton';
     AppComponent,
     DadosTableComponent,
     UploaderComponent,
-    InformativosComponent
+    InformativosComponent,
+    NomesExtensosComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +41,9 @@ import { SelectButtonModule } from 'primeng/selectbutton';
     InputTextModule,
     HttpClientModule,
     KeyFilterModule,
-    SelectButtonModule
+    SelectButtonModule,
+    FieldsetModule,
+    BrowserAnimationsModule
   ],
   providers: [
     HttpErrorHandler,

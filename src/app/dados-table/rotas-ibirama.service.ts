@@ -7,20 +7,10 @@ import { HttpErrorHandler, HandleError } from '../mensagens/http-error-handler.s
 
 import { Rota } from './Rota';
 
-export class RotasFiltro {
-
-  nomeRua: string;
-  bairro: string;
-  tipoColeta: string;
-
-}
-
 @Injectable()
 export class RotasIbiramaService {
   rotasUrl = 'http://localhost:8080/rotasIbirama';
   private handleError: HandleError;
-  filtro = new RotasFiltro();
-
   constructor(
     private http: HttpClient,
     httpErrorHandler: HttpErrorHandler) {
