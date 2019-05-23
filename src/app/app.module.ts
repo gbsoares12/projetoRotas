@@ -1,25 +1,30 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {ButtonModule} from 'primeng/components/button/button';
-import {InputTextModule} from 'primeng/components/inputtext/inputtext';
-import {TableModule} from 'primeng/table';
-import {TooltipModule} from 'primeng/components/tooltip/tooltip';
-import { FormsModule } from '@angular/forms';
-import { HttpErrorHandler } from './mensagens/http-error-handler.service';
-import { MessageService } from './mensagens/message.service';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-
-import { DadosTableComponent } from './dados-table/dados-table.component';
 import { UploaderComponent } from './uploader/uploader.component';
+import { DadosTableComponent } from './dados-table/dados-table.component';
+import { HttpErrorHandler } from './mensagens/http-error-handler.service';
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { MessageService } from './mensagens/message.service';
+
+import { InputTextModule } from 'primeng/components/inputtext/inputtext';
+import { TooltipModule } from 'primeng/components/tooltip/tooltip';
+import { ButtonModule } from 'primeng/components/button/button';
+import { TableModule } from 'primeng/table';
+import { KeyFilterModule } from 'primeng/keyfilter';
+import { InformativosComponent } from './informativos/informativos.component';
+import { SelectButtonModule } from 'primeng/selectbutton';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     DadosTableComponent,
-    UploaderComponent
+    UploaderComponent,
+    InformativosComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +34,9 @@ import { UploaderComponent } from './uploader/uploader.component';
     TooltipModule,
     ButtonModule,
     InputTextModule,
-    HttpClientModule
+    HttpClientModule,
+    KeyFilterModule,
+    SelectButtonModule
   ],
   providers: [
     HttpErrorHandler,

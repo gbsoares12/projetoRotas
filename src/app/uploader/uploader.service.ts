@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {
   HttpClient, HttpEvent, HttpEventType, HttpProgressEvent,
-  HttpRequest, HttpResponse, HttpErrorResponse
+  HttpRequest, HttpResponse, HttpErrorResponse, HttpHeaders, HttpParams
 } from '@angular/common/http';
 
 import { of } from 'rxjs';
@@ -13,40 +13,16 @@ import { MessageService } from '../mensagens/message.service';
 export class UploaderService {
   constructor(
     private http: HttpClient,
-    private messenger: MessageService) {}
+    private messenger: MessageService) { }
 
   // If uploading multiple files, change to:
-  // upload(files: FileList) {
-  //   const formData = new FormData();
-  //   files.forEach(f => formData.append(f.name, f));
-  //   new HttpRequest('POST', '/upload/file', formData, {reportProgress: true});
-  //   ...
-  // }
+  upload(files: FileList) {
+    const formData = new FormData();
+    formData.append('file', files[0]);
 
-  upload(file: File) {
-    if (!file) { return; }
-
-    // COULD HAVE WRITTEN:
-    // return this.http.post('/upload/file', file, {
-    //   reportProgress: true,
-    //   observe: 'events'
-    // }).pipe(
-
-    // Create the request object that POSTs the file to an upload endpoint.
-    // The `reportProgress` option tells HttpClient to listen and return
-    // XHR progress events.
-    const req = new HttpRequest('POST', '/upload/file', file, {
-      reportProgress: true
-    });
-
-    // The `HttpClient.request` API produces a raw event stream
-    // which includes start (sent), progress, and response events.
-    return this.http.request(req).pipe(
-      map(event => this.getEventMessage(event, file)),
-      tap(message => this.showProgress(message)),
-      last(), // return last (completed) message to caller
-      catchError(this.handleError(file))
-    );
+    return this.http.post('http://localhost:8080/upload', formData)
+    .toPromise()
+    .then(response => console.log(response));
   }
 
   /** Return distinct message for sent, upload progress, & response events */
@@ -84,7 +60,7 @@ export class UploaderService {
 
       const message = (error.error instanceof Error) ?
         error.error.message :
-       `server returned code ${error.status} with body "${error.error}"`;
+        `server returned code ${error.status} with body "${error.error}"`;
 
       this.messenger.add(`${userMessage} ${message}`);
 

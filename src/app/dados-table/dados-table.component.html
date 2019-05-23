@@ -2,49 +2,50 @@
 
 
   <div class="ui-g">
-    <!-- Inicio filtros -->
 
+    <!-- Inicio filtros -->
     <div class="ui-g-12">
       <h1>Rota de coleta de lixo - Ibirama, Santa Catarina</h1>
     </div>
 
-    <div class="ui-g-12 ui-fluid">
-      <div class="ui-g-6 ui-fluid">
-        <label>Nome do logradouro</label>
-        <input #nomeRua pInputText type="text" name="nomeRua">
+    <div class="ui-g">
+      <div class="ui-g-4 ui-fluid">
+        <label>Nome da rua</label>
+        <input #nomeRua pInputText type="text"  (keyup)="pesquisar(nomeRua.value, bairro.value)" [pKeyFilter]="blockSpecial" name="nomeRua">
       </div>
-      <div class="ui-g-6 ui-fluid">
+      <div class="ui-g-4 ui-fluid">
         <label>Bairro</label>
-        <input #bairro pInputText type="text" name="bairro">
+        <input #bairro pInputText type="text" (keyup)="pesquisar(nomeRua.value, bairro.value)"  [pKeyFilter]="blockSpecial" name="bairro">
       </div>
+      <div class="ui-g-4 ui-fluid">
+          <label>Tipo coleta</label>
+          <p-selectButton [options]="coleta" (onChange)="pesquisar(nomeRua.value,bairro.value,$event.value)" multiple="multiple" (ngModel)="tipoColetaSelecionada"></p-selectButton>
+        </div>
     </div>
-
     <div class="ui-g-12">
-      <button pButton (click)="search(nomeRua.value)" type="submit" label="Pesquisar"></button>
+      <button pButton (click)="teste()" type="submit" label="Pesquisar"></button>
     </div>
-
   </div>
   <!-- Fim filtros -->
 
   <!-- Inicio Grid -->
   <div class="ui-g">
     <div class="ui-g-12 ui-fluid">
-      <p-table [value]="rotas" [paginator]="true" [rows]="3" [responsive]="true" [lazy]="true"
-        emptyMessage="Nenhuma informação encontrada">
+      <p-table [value]="rotas" [paginator]="true" [rows]="3" [responsive]="true" [resizableColumns]="true" columnResizeMode="expand">
         <ng-template pTemplate="header">
           <tr>
-            <th colspan="14">Rotas Coleta de lixo - Ibirama</th>
+            <th pResizableColumn colspan="14">Rotas Coleta de lixo - Ibirama</th>
           </tr>
           <tr>
-            <th rowspan="4" colspan="2">Nome da Rua</th>
+            <th pResizableColumn rowspan="4" colspan="2">Nome da Rua</th>
           </tr>
           <tr>
-            <th colspan="2">Segunda-Feira</th>
-            <th colspan="2">Terça-Feira</th>
-            <th colspan="2">Quarta-Feira</th>
-            <th colspan="2">Quinta-Feira</th>
-            <th colspan="2">Sexta-Feira</th>
-            <th colspan="2">Sábado</th>
+            <th pResizableColumn colspan="2">Segunda-Feira</th>
+            <th pResizableColumn colspan="2">Terça-Feira</th>
+            <th pResizableColumn colspan="2">Quarta-Feira</th>
+            <th pResizableColumn colspan="2">Quinta-Feira</th>
+            <th pResizableColumn colspan="2">Sexta-Feira</th>
+            <th pResizableColumn colspan="2">Sábado</th>
           </tr>
           <tr>
             <th>Manhã</th>
@@ -64,48 +65,58 @@
 
         <ng-template pTemplate="body" let-rotas>
           <tr>
-            <td class="col-nomeRua" colspan="2">{{rotas.nome_rua}}</td>
+            <td class="col-nomeRua ui-resizable-column" colspan="2">
+              <span class="ui-column-title">Nome da Rua</span>
+              {{rotas.nome_rua}}</td>
 
-            <td class="col-valores" [style.color]="rotas.tipo_coleta === 'seletiva' ? 'green' : 'blue'">
+            <td class="col-valores ui-resizable-column" [style.color]="rotas.tipo_coleta === 'SELETIVA' ? 'green' : 'blue'">
+              <span class="ui-column-title">Segunda Manhã</span>
               {{rotas.segunda_manha}}</td>
-            <td class="col-valores" [style.color]="rotas.tipo_coleta  === 'seletiva' ? 'green' : 'blue'">
+            <td class="col-valores ui-resizable-column" [style.color]="rotas.tipo_coleta  === 'SELETIVA' ? 'green' : 'blue'">
+              <span class="ui-column-title">Segunda Tarde</span>
               {{rotas.segunda_tarde}}</td>
 
-            <td class="col-valores" [style.color]="rotas.tipo_coleta  === 'seletiva' ? 'green' : 'blue'">
+            <td class="col-valores ui-resizable-column" [style.color]="rotas.tipo_coleta  === 'SELETIVA' ? 'green' : 'blue'">
+              <span class="ui-column-title">Terça Manhã</span>
               {{rotas.terca_manha}}</td>
-            <td class="col-valores" [style.color]="rotas.tipo_coleta  === 'seletiva' ? 'green' : 'blue'">
+            <td class="col-valores ui-resizable-column" [style.color]="rotas.tipo_coleta  === 'SELETIVA' ? 'green' : 'blue'">
+              <span class="ui-column-title">Terça Tarde</span>
               {{rotas.terca_tarde}}</td>
 
-            <td class="col-valores" [style.color]="rotas.tipo_coleta  === 'seletiva' ? 'green' : 'blue'">
+            <td class="col-valores ui-resizable-column" [style.color]="rotas.tipo_coleta  === 'SELETIVA' ? 'green' : 'blue'">
+              <span class="ui-column-title">Quarta Manhã</span>
               {{rotas.quarta_manha}}</td>
-            <td class="col-valores" [style.color]="rotas.tipo_coleta  === 'seletiva' ? 'green' : 'blue'">
+
+            <td class="col-valores ui-resizable-column" [style.color]="rotas.tipo_coleta  === 'SELETIVA' ? 'green' : 'blue'">
+              <span class="ui-column-title">Quarta Tarde</span>
               {{rotas.quarta_tarde}}</td>
 
-            <td class="col-valores" [style.color]="rotas.tipo_coleta  === 'seletiva' ? 'green' : 'blue'">
+            <td class="col-valores ui-resizable-column" [style.color]="rotas.tipo_coleta  === 'SELETIVA' ? 'green' : 'blue'">
+              <span class="ui-column-title">Quinta Manhã</span>
               {{rotas.quinta_manha}}</td>
-            <td class="col-valores" [style.color]="rotas.tipo_coleta  === 'seletiva' ? 'green' : 'blue'">
+
+            <td class="col-valores ui-resizable-column" [style.color]="rotas.tipo_coleta  === 'SELETIVA' ? 'green' : 'blue'">
+              <span class="ui-column-title">Quinta Tarde</span>
               {{rotas.quinta_tarde}}</td>
 
-            <td class="col-valores" [style.color]="rotas.tipo_coleta  === 'seletiva' ? 'green' : 'blue'">
+            <td class="col-valores ui-resizable-column" [style.color]="rotas.tipo_coleta  === 'SELETIVA' ? 'green' : 'blue'">
+              <span class="ui-column-title">Sexta Manhã</span>
               {{rotas.sexta_manha}}</td>
-            <td class="col-valores" [style.color]="rotas.tipo_coleta  === 'seletiva' ? 'green' : 'blue'">
+
+            <td class="col-valores ui-resizable-column" [style.color]="rotas.tipo_coleta  === 'SELETIVA' ? 'green' : 'blue'">
+              <span class="ui-column-title">Sexta Tarde</span>
               {{rotas.sexta_tarde}}</td>
 
-            <td class="col-valores" [style.color]="rotas.tipo_coleta  === 'seletiva' ? 'green' : 'blue'">
+            <td class="col-valores ui-resizable-column" [style.color]="rotas.tipo_coleta  === 'SELETIVA' ? 'green' : 'blue'">
+              <span class="ui-column-title">Sábado Manhã</span>
               {{rotas.sabado_manha}}</td>
-            <td class="col-valores" [style.color]="rotas.tipo_coleta  === 'seletiva' ? 'green' : 'blue'">
+
+            <td class="col-valores ui-resizable-column" [style.color]="rotas.tipo_coleta  === 'SELETIVA' ? 'green' : 'blue'">
+              <span class="ui-column-title">Sábado Tarde</span>
               {{rotas.sabado_tarde}}</td>
           </tr>
         </ng-template>
       </p-table>
     </div>
-
     <!-- Fim Grid-->
-
-    <!-- Inicio Opções Botton -->
-    <div class="ui-g-12">
-      <a pButton (click)="teste()" label="Nova Pessoa"></a>
-    </div>
   </div>
-  <!-- Fim Opções Botton -->
-</div>

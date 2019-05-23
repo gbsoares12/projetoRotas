@@ -14,14 +14,9 @@ export class UploaderComponent {
   constructor(private uploaderService: UploaderService) {}
 
   onPicked(input: HTMLInputElement) {
-    const file = input.files[0];
+    const file = input.files;
     if (file) {
-      this.uploaderService.upload(file).subscribe(
-        msg => {
-          input.value = null;
-          this.message = msg;
-        }
-      );
+      this.uploaderService.upload(file)
     }
   }
 }
