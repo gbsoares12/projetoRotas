@@ -4,11 +4,8 @@ body {
     color: #11534c;
 }
 
-.ui-paginator .ui-paginator-page.ui-state-active {
-    background: #11534c !important;
-    color: white !important;
-    border-color: #11534c !important;
-}
+
+/* CSS Filtros*/
 
 .ui-togglebutton.ui-button.ui-state-active,
 .ui-selectbutton .ui-button.ui-state-active {
@@ -16,14 +13,26 @@ body {
     background: #11534c !important;
 }
 
+.ui-fieldset,
+.ui-fieldset .ui-fieldset-legend {
+    padding: .5em 1em;
+    border-color: #11534c !important;
+}
 
-/* TurboTable */
+
+/* CSS TurboTable */
 
 .ui-table .ui-table-thead>tr>th,
 .ui-table .ui-table-tfoot>tr>td {
     background-color: #9aca48 !important;
-    border-color: #d9d9d9 !important;
+    border-color: #11534c !important;
     color: #11534c;
+}
+
+.ui-paginator .ui-paginator-page.ui-state-active {
+    background: #11534c !important;
+    color: white !important;
+    border-color: #11534c !important;
 }
 
 .ui-accordion .ui-accordion-header {
@@ -34,7 +43,17 @@ body {
 .ui-table .ui-paginator-bottom {
     border-top: 0 none;
     background: #9aca48 !important;
+    border-color: #11534c !important;
 }
+
+.ui-table .ui-table-tbody>tr>td {
+    border: 1px solid #D5D5D5;
+    background-color: inherit;
+    border-color: #11534c !important;
+}
+
+
+/* CSS BODY */
 
 label {
     font-weight: bold;
