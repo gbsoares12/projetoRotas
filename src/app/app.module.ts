@@ -20,6 +20,10 @@ import { InformativosComponent } from './informativos/informativos.component';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { FieldsetModule } from 'primeng/fieldset';
 import { NomesExtensosComponent } from './dados-table/nomes-extensos/nomes-extensos.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { AccordionModule } from 'primeng/accordion';
+import { DialogModule } from 'primeng/dialog';
 
 
 
@@ -29,7 +33,8 @@ import { NomesExtensosComponent } from './dados-table/nomes-extensos/nomes-exten
     DadosTableComponent,
     UploaderComponent,
     InformativosComponent,
-    NomesExtensosComponent
+    NomesExtensosComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +48,10 @@ import { NomesExtensosComponent } from './dados-table/nomes-extensos/nomes-exten
     KeyFilterModule,
     SelectButtonModule,
     FieldsetModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FontAwesomeModule,
+    AccordionModule,
+    DialogModule
   ],
   providers: [
     HttpErrorHandler,

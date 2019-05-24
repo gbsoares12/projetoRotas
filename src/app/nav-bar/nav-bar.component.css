@@ -1,0 +1,14 @@
+.navbar {
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    background-image: url("../../../bg_header.jpg");
+}
+
+.navbar-toggle {
+    color: aliceblue;
+}
+
+.logoPrefeitura {
+    background-image: url('https://www.ibirama.sc.gov.br/img/general/logo.svg');
+}

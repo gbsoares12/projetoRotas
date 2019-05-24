@@ -1,34 +1,76 @@
 body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #404C51;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #11534c;
+}
+
+.ui-paginator .ui-paginator-page.ui-state-active {
+    background: #11534c !important;
+    color: white !important;
+    border-color: #11534c !important;
+}
+
+.ui-togglebutton.ui-button.ui-state-active,
+.ui-selectbutton .ui-button.ui-state-active {
+    border: 1px solid #9aca48 !important;
+    background: #11534c !important;
+}
+
+
+/* TurboTable */
+
+.ui-table .ui-table-thead>tr>th,
+.ui-table .ui-table-tfoot>tr>td {
+    background-color: #9aca48 !important;
+    border-color: #d9d9d9 !important;
+    color: #11534c;
+}
+
+.ui-accordion .ui-accordion-header {
+    background: #9aca48 !important;
+    border-top: 1px solid #9aca48 !important;
+}
+
+.ui-table .ui-paginator-bottom {
+    border-top: 0 none;
+    background: #9aca48 !important;
 }
 
 label {
-  font-weight: bold;
+    font-weight: bold;
+    color: #11534c;
 }
 
 @media (min-width: 800px) {
-  .container {
-    width: 1000px;
-    margin: 0 auto;
-  }
+    .container {
+        width: 1000px;
+        margin: 0 auto;
+    }
 }
 
 .col-nomeRua {
-  width: 400px;
-  text-align: left;
+    width: 400px;
+    text-align: left;
 }
 
 .th-nomeRua {
-  width: 400px;
-  text-align: center;
+    width: 400px;
+    text-align: center;
 }
 
 .col-valores {
-  width: 60px;
-  text-align: center;
+    width: 60px;
+    text-align: center;
 }
 
+.iconSeletiva {
+    color: green;
+}
 
+.iconConvencional {
+    color: blue;
+}
 
+.modalLogin {
+    position: fixed;
+}
