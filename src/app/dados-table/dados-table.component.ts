@@ -5,7 +5,6 @@ import { Rota } from './Rota';
 import { SelectItem } from 'primeng/components/common/selectitem';
 import { faRecycle, faTruck } from '@fortawesome/free-solid-svg-icons';
 
-
 @Component({
   selector: 'app-dados-table',
   templateUrl: './dados-table.component.html',
@@ -28,6 +27,7 @@ export class DadosTableComponent implements OnInit {
     this.getRotas();
 
   }
+
   getRotas(): void {
     this.rotasIbiramaService.getRotas()
       .subscribe(rotas => this.rotas = rotas);

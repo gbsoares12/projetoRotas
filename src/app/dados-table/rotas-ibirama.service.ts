@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -26,12 +26,10 @@ export class RotasIbiramaService {
   }
 
   montaFiltros(nomeRua: string, bairro: string, tipoColeta: string) {
-  
-    console.log("rua: "+nomeRua + " bairro: " + bairro+ " coleta: "+ tipoColeta);
     const options1 = nomeRua || bairro || tipoColeta ?
       { params: new HttpParams().append('rua', nomeRua).append('bairro', bairro).append('coleta', tipoColeta) } : {};
 
-    return this.http.get<Rota[]>(this.rotasUrl + '/filter', options1)
+    return this.http.get<Rota[]>(this.rotasUrl + '/filter', options1, )
       .pipe(
         catchError(this.handleError<Rota[]>('searchRotas', []))
       );

@@ -1,4 +1,5 @@
 <div class="container">
+
     <div class="ui-g">
         <!-- Inicio filtros -->
         <div class="ui-g-12">
@@ -7,7 +8,7 @@
 
         <div class="ui-g-12">
             <p-fieldset [toggleable]="true">
-                <p-header style="color: #11534c"><b>Filtros</b></p-header>
+                <p-header style="color: #11534c;"><b>Filtros</b></p-header>
                 <div class="row-1 ui-g-6 ui-fluid">
                     <label>Nome da rua</label>
                     <input #nomeRua pInputText type="text" (keyup)="pesquisar(nomeRua.value, bairro.value)" [pKeyFilter]="blockSpecial" name="nomeRua">
@@ -29,7 +30,7 @@
         <div class="ui-g">
             <div class="ui-g-12 ui-fluid">
                 <p-fieldset [toggleable]="true">
-                    <p-header style="color: #11534c"><b>Rotas</b></p-header>
+                    <p-header style="color: #11534c; padding-right: 5px;"><b>Rotas</b></p-header>
                     <p-table [value]="rotas" [paginator]="true" [rows]="3" [responsive]="true" [resizableColumns]="true" columnResizeMode="expand">
                         <ng-template pTemplate="header">
                             <tr>

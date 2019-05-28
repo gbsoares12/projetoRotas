@@ -1,0 +1,34 @@
+<div style="display: none;" class="container">
+    <div class="ui-g-12">
+        <!-- Inicio Modal Login-->
+        <jw-modal id="dashboradAdmin">
+            <!-- Inicio corpo modal -->
+            <h1 style="height:300px">Login do Adminstrador</h1>
+            <button pButton>Entrar</button>
+            <button pButton (click)="closeModal('dashboradAdmin');">Voltar</button>
+        </jw-modal>
+    </div>
+</div>
+
+<p-dialog header="Login do Adminstrador" [(visible)]="visible" modal="modal" [style]="{width: '350px'}" [responsive]="true">
+    <div class="ui-g-12">
+        <h3>Usuário</h3>
+        <span class="ui-float-label">
+              <input [(ngModel)]="username" id="float-input" type="text" size="30" pInputText> 
+              <label for="float-input">Usuário</label>
+          </span>
+    </div>
+    <div class="ui-g-12">
+        <h3>Senha</h3>
+        <span class="ui-float-label">
+                  <input [(ngModel)]="password" id="float-input" type="password" size="30" pInputText> 
+                  <label for="float-input">Senha</label>
+              </span>
+    </div>
+    <p-footer>
+        <div class="ui-dialog-buttonpane ui-helper-clearfix">
+            <button type="button" pButton icon="pi pi-times" (click)="visible=false; fecharLogin();" label="Sair"></button>
+            <button type="button" pButton icon="pi pi-check" (click)="visible=false; fecharLogin(); checkLogin()" label="Entrar"></button>
+        </div>
+    </p-footer>
+</p-dialog>
