@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-
 import { faTools } from '@fortawesome/free-solid-svg-icons';
 import { DashboardAdminService } from '../dashboard-admin/dashboard-admin.service';
 
@@ -17,7 +16,6 @@ export class NavBarComponent implements OnInit {
 
   ngOnInit() {
   }
-
   estadoAtualModal(estado: boolean) {
     this.modalVisible = estado;
   }

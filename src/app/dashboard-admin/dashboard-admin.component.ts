@@ -20,33 +20,28 @@ export class DashboardAdminComponent implements OnInit {
 
   constructor(private modalService: ModalService, private router: Router,
               private loginservice: AuthenticationService, private dashboardAdmService: DashboardAdminService) { }
-
   ngOnInit() {
     this.visible = this.dashboardAdmService.getEstado();
   }
-
   checkLogin() {
     (this.loginservice.authenticate(this.username, this.password).subscribe(
       data => {
         this.router.navigate(['']);
-        this.invalidLogin = false
+        this.invalidLogin = false;
       },
       error => {
-        this.invalidLogin = true
+        this.invalidLogin = true;
       }
     )
     );
-
   }
-
-  fecharLogin() {
+  fecharLogin(event: boolean) {
+    this.visible = event;
     this.estadoLogin.emit(this.visible);
   }
- 
   openModal(id: string) {
     this.modalService.open(id);
   }
-
   closeModal(id: string) {
     this.modalService.close(id);
   }

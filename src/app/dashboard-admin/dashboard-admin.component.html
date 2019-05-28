@@ -9,8 +9,7 @@
         </jw-modal>
     </div>
 </div>
-
-<p-dialog header="Login do Adminstrador" [(visible)]="visible" modal="modal" [style]="{width: '350px'}" [responsive]="true">
+<p-dialog header="Login do Adminstrador" [(visible)]="visible" (visibleChange)="fecharLogin($event);" modal="modal" [style]="{width: '350px'}" [responsive]="true">
     <div class="ui-g-12">
         <h3>Usuário</h3>
         <span class="ui-float-label">
@@ -27,8 +26,8 @@
     </div>
     <p-footer>
         <div class="ui-dialog-buttonpane ui-helper-clearfix">
-            <button type="button" pButton icon="pi pi-times" (click)="visible=false; fecharLogin();" label="Sair"></button>
-            <button type="button" pButton icon="pi pi-check" (click)="visible=false; fecharLogin(); checkLogin()" label="Entrar"></button>
+            <button type="button" pButton icon="pi pi-times" (click)="fecharLogin();" label="Sair"></button>
+            <button type="button" pButton icon="pi pi-check" (click)="fecharLogin(); checkLogin()" label="Entrar"></button>
         </div>
     </p-footer>
 </p-dialog>
