@@ -5,6 +5,24 @@ body {
 }
 
 
+/* Login/Admin */
+
+.buttonLogin {
+    border: 1px solid #11534c !important;
+    background: #11534c !important;
+}
+
+.buttonLogin:hover {
+    border: 1px solid #16645c !important;
+    background: #16645c !important;
+}
+
+.ui-widget-header {
+    background: linear-gradient(to bottom, #86bf25 0%, #11534c 100%) !important;
+    color: #cee0b0;
+}
+
+
 /* CSS Filtros*/
 
 .ui-togglebutton.ui-button.ui-state-active,

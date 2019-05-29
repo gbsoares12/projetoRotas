@@ -26,14 +26,20 @@ export class DashboardAdminComponent implements OnInit {
   checkLogin() {
     (this.loginservice.authenticate(this.username, this.password).subscribe(
       data => {
-        this.router.navigate(['']);
         this.invalidLogin = false;
+        this.openModal('dashboradAdmin');
+        this.fecharLogin(false);
       },
       error => {
+        alert('Usuário ou senha incorretos!');
         this.invalidLogin = true;
       }
     )
     );
+  }
+  logout() {
+    this.loginservice.logOut();
+    this.closeModal('dashboradAdmin');
   }
   fecharLogin(event: boolean) {
     this.visible = event;

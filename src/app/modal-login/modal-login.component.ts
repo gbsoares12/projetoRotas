@@ -5,7 +5,7 @@ import { ModalService } from './modal.service';
 @Component({
     selector: 'jw-modal',
     template: 
-        `<div class="jw-modal">
+        `<div class="jw-modal container">
             <div class="jw-modal-body">
                 <ng-content></ng-content>
             </div>
