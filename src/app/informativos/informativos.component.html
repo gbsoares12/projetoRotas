@@ -1,11 +1,29 @@
-<p-accordion>
-    <p-accordionTab header="Header 1">
-       Content 1
-    </p-accordionTab>
-    <p-accordionTab header="Header 2">
-        Content 2
-    </p-accordionTab>
-    <p-accordionTab header="Header 3">
-        Content 3    
-    </p-accordionTab>
-</p-accordion>
+<div class="ui-g-6">
+    <fieldset class="informativos">
+        <legend><b>Informativos</b></legend>
+        <div style="text-align: left">
+            <div class="ui-g-12">
+                <fa-icon style="color: green" [icon]="faRecycle"></fa-icon> <label> - Seletiva</label>
+            </div>
+            <div class="ui-g-12">
+                <fa-icon style="color: blue" [icon]="faTruck"></fa-icon><label> - Convencional</label>
+            </div>
+
+        </div>
+    </fieldset>
+</div>
+<div class="ui-g-6">
+    <p-accordion>
+        <p-accordionTab header="Como e porquê separar o lixo?">
+            A reciclagem reduz, de forma importante, impacto sobre o meio ambiente: diminui as retiradas de matéria-prima da natureza, gera economia de água e energia e reduz a disposição inadequada do lixo. Além disso, é fonte de renda para os catadores.
+        </p-accordionTab>
+        <p-accordionTab header="O que é reciclável?">
+            É reciclável todo o resíduo descartado que constitui interesse de transformação de partes ou o seu todo. Esses materiais poderão retornar à cadeia produtiva para virar o mesmo produto ou produtos diferentes dos originais. Por exemplo: Folhas e aparas
+            de papel, jornais, revistas, caixas, papelão, PET, recipientes de limpeza, latas de cerveja e refrigerante, canos, esquadrias, arame, todos os produtos eletroeletrônicos e seus componentes, embalagens em geral e outros.
+        </p-accordionTab>
+        <p-accordionTab header="O que não vai para o lixo reciclável?">
+            Papel-carbono, etiqueta adesiva, fita crepe, guardanapos, fotografias, filtro de cigarros, papéis sujos, papéis sanitários, copos de papel. Cabos de panela e tomadas. Clipes, grampos, esponjas de aço, canos. Espelhos, cristais, cerâmicas, porcelana. Pilhas
+            e baterias de celular devem ser devolvidas aos fabricantes ou depositadas em coletores específicos.
+        </p-accordionTab>
+    </p-accordion>
+</div>

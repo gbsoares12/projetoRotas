@@ -5,6 +5,30 @@ body {
 }
 
 
+/* Informativos */
+
+.informativos {
+    margin-left: 9.5px;
+    border: 1px solid #11534c;
+}
+
+.tituloInformativos {
+    margin-left: 50px;
+}
+
+.ui-accordion .ui-accordion-header a {
+    background: #9aca48 !important;
+    border-top: 1px #9aca48 !important;
+    color: #11534c;
+}
+
+.ui-accordion .ui-accordion-header a:hover a {
+    background: #9aca48 !important;
+    border-top: 1px solid #9aca48 !important;
+    color: #16645c !important;
+}
+
+
 /* Login/Admin */
 
 .buttonLogin {
@@ -20,6 +44,7 @@ body {
 .ui-widget-header {
     background: linear-gradient(to bottom, #86bf25 0%, #11534c 100%) !important;
     color: #cee0b0;
+    border: 1px solid #16645c;
 }
 
 
@@ -51,11 +76,6 @@ body {
     background: #11534c !important;
     color: white !important;
     border-color: #11534c !important;
-}
-
-.ui-accordion .ui-accordion-header {
-    background: #9aca48 !important;
-    border-top: 1px solid #9aca48 !important;
 }
 
 .ui-table .ui-paginator-bottom {
@@ -153,4 +173,35 @@ jw-modal .jw-modal-background {
     opacity: 0.75;
     /* z-index must be below .jw-modal and above everything else  */
     z-index: 900;
+}
+
+
+/* NAV BAR */
+
+.fundoNavBar {
+    background-image: url("../bg_header.jpg");
+}
+
+.navbar {
+    padding: 10px 0;
+    width: 100%;
+    height: 30px;
+}
+
+.navbar-toggle {
+    color: aliceblue;
+}
+
+.logoPrefeitura {
+    background-image: url("../logoPrefIbirama.jpg");
+}
+
+
+/* Footer */
+
+.footer {
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background-color: #132c29;
 }

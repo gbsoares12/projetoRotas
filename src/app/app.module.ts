@@ -28,6 +28,7 @@ import { AccordionModule } from 'primeng/accordion';
 import { DialogModule } from 'primeng/dialog';
 import { ModalLoginComponent } from './modal-login/modal-login.component';
 import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -41,7 +42,8 @@ import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.compo
     NomesExtensosComponent,
     NavBarComponent,
     ModalLoginComponent,
-    DashboardAdminComponent
+    DashboardAdminComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
