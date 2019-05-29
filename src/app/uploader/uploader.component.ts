@@ -15,8 +15,8 @@ export class UploaderComponent {
 
   onPicked(input: HTMLInputElement) {
     const file = input.files;
-    if (file) {
-      this.uploaderService.upload(file)
+    if (file[0]) {
+      this.uploaderService.upload(file[0])
     }
   }
 }

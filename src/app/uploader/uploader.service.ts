@@ -14,13 +14,22 @@ export class UploaderService {
   constructor(
     private http: HttpClient,
     private messenger: MessageService) { }
-
   // If uploading multiple files, change to:
-  upload(files: FileList) {
-    const formData = new FormData();
-    formData.append('file', files[0]);
+  upload(file: File) {
+    const user = sessionStorage.getItem('basicauth');
 
-    return this.http.post('http://localhost:8080/upload', formData)
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: user
+      })
+    };
+
+    const formData = new FormData(); // Por que o form data ta vazio?
+
+    formData.append('file', file);
+    console.log(formData);
+
+    return this.http.post('http://localhost:8080/upload', formData, httpOptions)
     .toPromise()
     .then(response => console.log(response));
   }
