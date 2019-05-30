@@ -19,7 +19,7 @@
                 </div>
                 <div class="row-3 ui-g-6 ui-fluid">
                     <label>Tipo coleta</label>
-                    <p-selectButton [options]="coleta" (onChange)="pesquisar(nomeRua.value,bairro.value,$event.value)" multiple="multiple" (ngModel)="tipoColetaSelecionada"></p-selectButton>
+                    <p-selectButton [options]="coleta" (onChange)="pesquisar(nomeRua.value,bairro.value)" multiple="multiple" [(ngModel)]="tipoColetaSelecionada"></p-selectButton>
                 </div>
             </p-fieldset>
         </div>
@@ -31,7 +31,7 @@
             <div class="ui-g-12 ui-fluid">
                 <p-fieldset [toggleable]="true">
                     <p-header style="color: #11534c; padding-right: 5px;"><b>Rotas</b></p-header>
-                    <p-table [value]="rotas" [paginator]="true" [rows]="5" [responsive]="true" [resizableColumns]="true" columnResizeMode="expand">
+                    <p-table [value]="rotas" [paginator]="true" [rows]="5" [responsive]="true">
                         <ng-template pTemplate="header">
                             <tr>
                                 <th pResizableColumn colspan="14">Rotas Coleta de lixo - Ibirama</th>
@@ -62,7 +62,7 @@
                                 <th>Tarde</th>
                             </tr>
                         </ng-template>
-                        <ng-template pTemplate="body" let-rotas>
+                        <ng-template dropdownAppendTo pTemplate="body" let-rotas>
                             <tr>
                                 <td class="col-nomeRua ui-resizable-column" colspan="2">
                                     <span class="ui-column-title">Nome da Rua:</span>

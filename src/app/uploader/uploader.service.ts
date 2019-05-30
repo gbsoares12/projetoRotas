@@ -27,7 +27,6 @@ export class UploaderService {
     const formData = new FormData(); // Por que o form data ta vazio?
 
     formData.append('file', file);
-    console.log(formData);
 
     return this.http.post('http://localhost:8080/upload', formData, httpOptions)
     .toPromise()

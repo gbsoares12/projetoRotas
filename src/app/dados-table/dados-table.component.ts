@@ -18,6 +18,7 @@ export class DadosTableComponent implements OnInit {
   rotas: Rota[];
   coleta: SelectItem[];
   teste: string[];
+  tipoColetaSelecionada: string[];
   constructor(private rotasIbiramaService: RotasIbiramaService) {
     this.coleta = [{ label: 'Seletiva', value: 'SELETIVA' }, { label: 'Convencional', value: 'CONVENCIONAL' }];
   }
@@ -32,23 +33,23 @@ export class DadosTableComponent implements OnInit {
     this.rotasIbiramaService.getRotas()
       .subscribe(rotas => this.rotas = rotas);
   }
-  pesquisar(nomeRua: string, bairro: string, coleta: string[]) {
+  pesquisar(nomeRua: string, bairro: string) {
 
     let tipoColeta: string;
-    if (coleta) {
-      if (coleta.length < 2) {
-        tipoColeta = coleta[0];
+    if (this.tipoColetaSelecionada) {
+      if (this.tipoColetaSelecionada.length < 2) {
+        tipoColeta = this.tipoColetaSelecionada[0];
       } else {
         tipoColeta = 'undefined';
       }
-      if (!nomeRua && !bairro && coleta.length > 1) {
+      if (!nomeRua && !bairro && this.tipoColetaSelecionada.length > 1) {
         this.getRotas();
       }
     }
 
     if (!nomeRua && !bairro && !tipoColeta) {
       this.getRotas();
-    } else if (nomeRua || bairro || (coleta && coleta.length === 1)) {
+    } else if (nomeRua || bairro || (this.tipoColetaSelecionada && this.tipoColetaSelecionada.length === 1)) {
       this.rotasIbiramaService.montaFiltros(nomeRua, bairro, tipoColeta)
         .subscribe(rotas => this.rotas = rotas, error => console.error(error));
     }

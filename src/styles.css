@@ -32,13 +32,13 @@ body {
 /* Login/Admin */
 
 .buttonLogin {
-    border: 1px solid #11534c !important;
-    background: #11534c !important;
+    border: 1px solid #9aca48 !important;
+    background: #9aca48 !important;
 }
 
 .buttonLogin:hover {
-    border: 1px solid #16645c !important;
-    background: #16645c !important;
+    border: 1px solid #9aca48 !important;
+    background: #9aca489d !important;
 }
 
 .ui-widget-header {
