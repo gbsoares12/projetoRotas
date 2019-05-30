@@ -24,13 +24,31 @@ export class UploaderService {
       })
     };
 
+    const headers = new HttpHeaders({
+      Authorization: user
+    });
+
     const formData = new FormData(); // Por que o form data ta vazio?
 
     formData.append('file', file);
 
-    return this.http.post('http://localhost:8080/upload', formData, httpOptions)
-    .toPromise()
-    .then(response => console.log(response));
+    const req = new HttpRequest('POST', 'http://localhost:8080/upload', formData, {
+      headers,
+      reportProgress: true
+    });
+
+    /*
+    this.http.post('http://localhost:8080/upload', formData, httpOptions)
+      .toPromise()
+      .then(response => console.log(response));
+    */
+
+    return this.http.request(req).pipe(
+      map(event => this.getEventMessage(event, file)),
+      tap(message => this.showProgress(message)),
+      last(), // return last (completed) message to caller
+      catchError(this.handleError(file)));
+
   }
 
   /** Return distinct message for sent, upload progress, & response events */
@@ -45,7 +63,7 @@ export class UploaderService {
         return `File "${file.name}" is ${percentDone}% uploaded.`;
 
       case HttpEventType.Response:
-        return `File "${file.name}" was completely uploaded!`;
+        return `Arquivo "${file.name}" foi enviado com sucesso!`;
 
       default:
         return `File "${file.name}" surprising upload event: ${event.type}.`;
@@ -60,7 +78,7 @@ export class UploaderService {
    * you'll end up here in the error handler.
    */
   private handleError(file: File) {
-    const userMessage = `${file.name} upload failed.`;
+    const userMessage = `erro ao enviar o arquivo ${file.name}.`;
 
     return (error: HttpErrorResponse) => {
       // TODO: send the error to remote logging infrastructure

@@ -1,13 +1,14 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Router } from '@angular/router';
 
 import { ModalService } from '../modal-login/index-modal';
 import { AuthenticationService } from '../service/authentication.service';
 import { DashboardAdminService } from './dashboard-admin.service';
+import { MessageService } from 'primeng/components/common/messageservice';
+
 @Component({
   selector: 'app-dashboard-admin',
   templateUrl: './dashboard-admin.component.html',
-  styleUrls: ['./dashboard-admin.component.css']
+  providers: [MessageService]
 })
 
 export class DashboardAdminComponent implements OnInit {
@@ -15,24 +16,25 @@ export class DashboardAdminComponent implements OnInit {
   password: string;
   invalidLogin = false;
   @Input() visible: boolean;
-
   @Output() estadoLogin = new EventEmitter();
 
-  constructor(private modalService: ModalService, private router: Router,
-              private loginservice: AuthenticationService, private dashboardAdmService: DashboardAdminService) { }
+  // tslint:disable-next-line: max-line-length
+  constructor(private modalService: ModalService, private loginservice: AuthenticationService, private dashboardAdmService: DashboardAdminService, private messageService: MessageService) { }
   ngOnInit() {
     this.visible = this.dashboardAdmService.getEstado();
   }
   checkLogin() {
     (this.loginservice.authenticate(this.username, this.password).subscribe(
       data => {
+
         this.invalidLogin = false;
         this.openModal('dashboradAdmin');
         this.fecharLogin(false);
+        this.showSuccess();
       },
       error => {
-        alert('Usuário ou senha incorretos!');
         this.invalidLogin = true;
+        this.showError();
       }
     )
     );
@@ -50,6 +52,15 @@ export class DashboardAdminComponent implements OnInit {
   }
   closeModal(id: string) {
     this.modalService.close(id);
+  }
+
+  showSuccess() {
+    this.messageService.add({ severity: 'success', summary: 'Logado com sucesso', detail: 'Bem vindo ao dashboard do administrador' });
+  }
+
+  showError() {
+// tslint:disable-next-line: max-line-length
+    this.messageService.add({ severity: 'error', summary: 'Usuário e senha não corresponde a um usuário cadastrado', detail: 'Valição falhou' });
   }
 
 }

@@ -16,7 +16,7 @@ export class UploaderComponent {
   onPicked(input: HTMLInputElement) {
     const file = input.files;
     if (file[0]) {
-      this.uploaderService.upload(file[0])
+      this.uploaderService.upload(file[0]).toPromise().then(result => this.message = result);
     }
   }
 }

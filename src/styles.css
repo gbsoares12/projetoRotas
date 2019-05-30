@@ -205,3 +205,29 @@ jw-modal .jw-modal-background {
     height: 40px;
     background-color: #132c29;
 }
+
+.custom-toast .ui-toast-message {
+  color: #ffffff;
+  background: #FC466B !important;
+  background: -webkit-linear-gradient(to right, #3F5EFB, #FC466B);
+  background: linear-gradient(to right, #3F5EFB, #FC466B);
+}
+.custom-toast .ui-toast-close-icon {
+  color: #ffffff;
+}
+/*
+.ui-toast-message-content {
+  background-color: #FC466B;
+}*/
+.ui-toast-message-error{
+  color: black;
+  background: rgba(214, 110, 110, 0.616) !important;
+  background: -webkit-linear-gradient(to right, #3F5EFB,  rgb(248, 127, 151));
+  background: linear-gradient(to right, #3F5EFB,  rgb(248, 127, 151));
+}
+.ui-toast-message-success{
+  color: black;
+  background: rgba(131, 214, 135, 0.616) !important;
+  background: -webkit-linear-gradient(to right, #3F5EFB,  rgb(248, 127, 151));
+  background: linear-gradient(to right, #3F5EFB,  rgb(248, 127, 151));
+}
