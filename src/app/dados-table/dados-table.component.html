@@ -70,12 +70,8 @@
               <tr>
                 <td class="col-nomeRua ui-resizable-column" colspan="2">
                   <span class="ui-column-title">Nome da Rua:</span>
-
                   <span><b>{{rotas.nome_rua}} </b></span>
-                  <a href="javascript:;" (click)="op1.toggle($event)">
-                    <fa-icon tooltipStyleClass="testeTooltip" pTooltip="{{rotas.descricao}}" tooltipPosition="right" *ngIf="rotas.descricao" style="color: #9aca48" [icon]="faInfoCircle"></fa-icon>
-                  </a>
-
+                  <fa-icon tooltipStyleClass="testeTooltip" pTooltip="{{rotas.descricao}}" tooltipPosition="right" *ngIf="rotas.descricao" style="color: #9aca48" [icon]="faInfoCircle"></fa-icon>
                 </td>
                 <td class="col-valores ui-resizable-column"
                   [style.color]="rotas.tipo_coleta === 'SELETIVA' ? 'green' : 'blue'">
