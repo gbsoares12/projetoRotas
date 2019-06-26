@@ -1,9 +1,9 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, AfterContentChecked } from '@angular/core';
 
 import { RotasIbiramaService } from './rotas-ibirama.service';
 import { Rota } from './Rota';
 import { SelectItem } from 'primeng/components/common/selectitem';
-import { faRecycle, faTruck } from '@fortawesome/free-solid-svg-icons';
+import { faRecycle, faTruck, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-dados-table',
@@ -11,28 +11,48 @@ import { faRecycle, faTruck } from '@fortawesome/free-solid-svg-icons';
   providers: [RotasIbiramaService],
   styleUrls: ['./dados-table.component.css']
 })
-export class DadosTableComponent implements OnInit {
+export class DadosTableComponent implements OnInit, AfterContentChecked {
   faRecycle = faRecycle;
   faTruck = faTruck;
+  faInfoCircle = faInfoCircle;
   blockSpecial: RegExp = /^[^<>*#!%&|=-_?:;.,'"`()$+¨/}{]+$/;
   rotas: Rota[];
+  rotasFormatadas: Rota[];
   coleta: SelectItem[];
   teste: string[];
+  bairroSelect: SelectItem[];
+  bairros: string[];
   tipoColetaSelecionada: string[];
   constructor(private rotasIbiramaService: RotasIbiramaService) {
     this.coleta = [{ label: 'Seletiva', value: 'SELETIVA' }, { label: 'Convencional', value: 'CONVENCIONAL' }];
   }
 
   ngOnInit() {
-
     this.getRotas();
-
   }
+  ngAfterContentChecked(): void {
+    if (this.rotas !== undefined) {
+      this.rotas.forEach(rota => {
+        let novoNome: string;
+        let novaDescricao: string;
+        const arrayNome = rota.nome_rua.split('(');
+        if (arrayNome.length > 1) {
+          const descricaoFormatada = arrayNome[1].split(')');
+          novoNome = arrayNome[0];
+          novaDescricao = arrayNome[1];
+          rota.nome_rua = novoNome;
+          rota.descricao = descricaoFormatada[0];
+        }
+      });
+    }
+  }
+
 
   getRotas(): void {
     this.rotasIbiramaService.getRotas()
       .subscribe(rotas => this.rotas = rotas);
   }
+
   pesquisar(nomeRua: string, bairro: string) {
 
     let tipoColeta: string;

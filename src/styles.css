@@ -196,7 +196,6 @@ jw-modal .jw-modal-background {
     background-image: url("../logoPrefIbirama.jpg");
 }
 
-
 /* Footer */
 
 .footer {
@@ -204,6 +203,7 @@ jw-modal .jw-modal-background {
     width: 100%;
     height: 40px;
     background-color: #132c29;
+    margin-bottom: 0;
 }
 
 .custom-toast .ui-toast-message {

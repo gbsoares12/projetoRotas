@@ -17,5 +17,6 @@ export interface Rota {
     sabado_tarde: string;
     bairro: string;
     tipo_coleta: string;
+    descricao: string;
 
 }

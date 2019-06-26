@@ -29,6 +29,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AccordionModule } from 'primeng/accordion';
 import { DialogModule } from 'primeng/dialog';
 import { ToastModule } from 'primeng/toast';
+import { DropdownModule } from 'primeng/dropdown';
 
 
 
@@ -46,6 +47,7 @@ import { ToastModule } from 'primeng/toast';
     FooterComponent
   ],
   imports: [
+    DropdownModule,
     CommonModule,
     ToastModule,
     BrowserModule,
