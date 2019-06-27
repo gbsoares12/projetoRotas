@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { faRecycle, faTruck } from '@fortawesome/free-solid-svg-icons';
+import { faRecycle, faTruck, faExclamationCircle, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-informativos',
@@ -10,6 +10,8 @@ import { faRecycle, faTruck } from '@fortawesome/free-solid-svg-icons';
 export class InformativosComponent implements OnInit {
   faRecycle = faRecycle;
   faTruck = faTruck;
+  faExclamationCircle = faExclamationCircle;
+  faInfoCircle = faInfoCircle;
   constructor() { }
 
   ngOnInit() {

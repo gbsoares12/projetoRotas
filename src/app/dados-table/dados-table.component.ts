@@ -3,7 +3,7 @@ import { Component, OnInit, AfterContentChecked } from '@angular/core';
 import { RotasIbiramaService } from './rotas-ibirama.service';
 import { Rota } from './Rota';
 import { SelectItem } from 'primeng/components/common/selectitem';
-import { faRecycle, faTruck, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import { faRecycle, faTruck, faInfoCircle, faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-dados-table',
@@ -15,6 +15,7 @@ export class DadosTableComponent implements OnInit, AfterContentChecked {
   faRecycle = faRecycle;
   faTruck = faTruck;
   faInfoCircle = faInfoCircle;
+  faExclamationCircle = faExclamationCircle;
   blockSpecial: RegExp = /^[^<>*#!%&|=-_?:;.,'"`()$+¨/}{]+$/;
   rotas: Rota[];
   rotasFormatadas: Rota[];

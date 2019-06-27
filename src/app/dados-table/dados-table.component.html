@@ -71,7 +71,8 @@
                 <td class="col-nomeRua ui-resizable-column" colspan="2">
                   <span class="ui-column-title">Nome da Rua:</span>
                   <span><b>{{rotas.nome_rua}} </b></span>
-                  <fa-icon tooltipStyleClass="testeTooltip" pTooltip="{{rotas.descricao}}" tooltipPosition="right" *ngIf="rotas.descricao" style="color: #9aca48" [icon]="faInfoCircle"></fa-icon>
+                  <fa-icon tooltipStyleClass="testeTooltip" pTooltip="{{rotas.descricao}}" tooltipPosition="right"
+                    *ngIf="rotas.descricao" style="color: #9aca48" [icon]="faInfoCircle"></fa-icon>
                 </td>
                 <td class="col-valores ui-resizable-column"
                   [style.color]="rotas.tipo_coleta === 'SELETIVA' ? 'green' : 'blue'">
@@ -79,6 +80,7 @@
                   <fa-icon *ngIf="rotas.segunda_manha && rotas.tipo_coleta === 'SELETIVA'" [icon]="faRecycle"></fa-icon>
                   <fa-icon *ngIf="rotas.segunda_manha && rotas.tipo_coleta === 'CONVENCIONAL'" [icon]="faTruck">
                   </fa-icon>
+                  <fa-icon *ngIf="rotas.segunda_manha && rotas.segunda_manha !== 'X'" [icon]="faExclamationCircle"></fa-icon>
                 </td>
                 <td class="col-valores ui-resizable-column"
                   [style.color]="rotas.tipo_coleta  === 'SELETIVA' ? 'green' : 'blue'">
@@ -86,18 +88,21 @@
                   <fa-icon *ngIf="rotas.segunda_tarde && rotas.tipo_coleta === 'SELETIVA'" [icon]="faRecycle"></fa-icon>
                   <fa-icon *ngIf="rotas.segunda_tarde && rotas.tipo_coleta === 'CONVENCIONAL'" [icon]="faTruck">
                   </fa-icon>
+                  <fa-icon *ngIf="rotas.segunda_tarde && rotas.segunda_tarde !== 'X'" [icon]="faExclamationCircle"></fa-icon>
                 </td>
                 <td class="col-valores ui-resizable-column"
                   [style.color]="rotas.tipo_coleta  === 'SELETIVA' ? 'green' : 'blue'">
                   <span class="ui-column-title">Terça Manhã:</span>
                   <fa-icon *ngIf="rotas.terca_manha && rotas.tipo_coleta === 'SELETIVA'" [icon]="faRecycle"></fa-icon>
                   <fa-icon *ngIf="rotas.terca_manha && rotas.tipo_coleta === 'CONVENCIONAL'" [icon]="faTruck"></fa-icon>
+                  <fa-icon *ngIf="rotas.terca_manha && rotas.terca_manha !== 'X'" [icon]="faExclamationCircle"></fa-icon>
                 </td>
                 <td class="col-valores ui-resizable-column"
                   [style.color]="rotas.tipo_coleta  === 'SELETIVA' ? 'green' : 'blue'">
                   <span class="ui-column-title">Terça Tarde:</span>
                   <fa-icon *ngIf="rotas.terca_tarde && rotas.tipo_coleta === 'SELETIVA'" [icon]="faRecycle"></fa-icon>
                   <fa-icon *ngIf="rotas.terca_tarde && rotas.tipo_coleta === 'CONVENCIONAL'" [icon]="faTruck"></fa-icon>
+                  <fa-icon *ngIf="rotas.terca_manha && rotas.terca_tarde !== 'X'" [icon]="faExclamationCircle"></fa-icon>
                 </td>
                 <td class="col-valores ui-resizable-column"
                   [style.color]="rotas.tipo_coleta  === 'SELETIVA' ? 'green' : 'blue'">
@@ -105,6 +110,7 @@
                   <fa-icon *ngIf="rotas.quarta_manha && rotas.tipo_coleta === 'SELETIVA'" [icon]="faRecycle"></fa-icon>
                   <fa-icon *ngIf="rotas.quarta_manha && rotas.tipo_coleta === 'CONVENCIONAL'" [icon]="faTruck">
                   </fa-icon>
+                  <fa-icon *ngIf="rotas.quarta_manha && rotas.quarta_manha !== 'X'" [icon]="faExclamationCircle"></fa-icon>
                 </td>
                 <td class="col-valores ui-resizable-column"
                   [style.color]="rotas.tipo_coleta  === 'SELETIVA' ? 'green' : 'blue'">
@@ -112,6 +118,7 @@
                   <fa-icon *ngIf="rotas.quarta_tarde && rotas.tipo_coleta === 'SELETIVA'" [icon]="faRecycle"></fa-icon>
                   <fa-icon *ngIf="rotas.quarta_tarde && rotas.tipo_coleta === 'CONVENCIONAL'" [icon]="faTruck">
                   </fa-icon>
+                  <fa-icon *ngIf="rotas.quarta_tarde && rotas.quarta_tarde !== 'X'" [icon]="faExclamationCircle"></fa-icon>
                 </td>
                 <td class="col-valores ui-resizable-column"
                   [style.color]="rotas.tipo_coleta  === 'SELETIVA' ? 'green' : 'blue'">
@@ -119,6 +126,7 @@
                   <fa-icon *ngIf="rotas.quinta_manha && rotas.tipo_coleta === 'SELETIVA'" [icon]="faRecycle"></fa-icon>
                   <fa-icon *ngIf="rotas.quinta_manha && rotas.tipo_coleta === 'CONVENCIONAL'" [icon]="faTruck">
                   </fa-icon>
+                  <fa-icon *ngIf="rotas.quinta_manha && rotas.quinta_manha !== 'X'" [icon]="faExclamationCircle"></fa-icon>
                 </td>
                 <td class="col-valores ui-resizable-column"
                   [style.color]="rotas.tipo_coleta  === 'SELETIVA' ? 'green' : 'blue'">
@@ -126,18 +134,21 @@
                   <fa-icon *ngIf="rotas.quinta_tarde && rotas.tipo_coleta === 'SELETIVA'" [icon]="faRecycle"></fa-icon>
                   <fa-icon *ngIf="rotas.quinta_tarde && rotas.tipo_coleta === 'CONVENCIONAL'" [icon]="faTruck">
                   </fa-icon>
+                  <fa-icon *ngIf="rotas.quinta_tarde && rotas.quinta_tarde !== 'X'" [icon]="faExclamationCircle"></fa-icon>
                 </td>
                 <td class="col-valores ui-resizable-column"
                   [style.color]="rotas.tipo_coleta  === 'SELETIVA' ? 'green' : 'blue'">
                   <span class="ui-column-title">Sexta Manhã:</span>
                   <fa-icon *ngIf="rotas.sexta_manha && rotas.tipo_coleta === 'SELETIVA'" [icon]="faRecycle"></fa-icon>
                   <fa-icon *ngIf="rotas.sexta_manha && rotas.tipo_coleta === 'CONVENCIONAL'" [icon]="faTruck"></fa-icon>
+                  <fa-icon *ngIf="rotas.sexta_manha && rotas.sexta_manha !== 'X'" [icon]="faExclamationCircle"></fa-icon>
                 </td>
                 <td class="col-valores ui-resizable-column"
                   [style.color]="rotas.tipo_coleta  === 'SELETIVA' ? 'green' : 'blue'">
                   <span class="ui-column-title">Sexta Tarde:</span>
                   <fa-icon *ngIf="rotas.sexta_tarde && rotas.tipo_coleta === 'SELETIVA'" [icon]="faRecycle"></fa-icon>
                   <fa-icon *ngIf="rotas.sexta_tarde && rotas.tipo_coleta === 'CONVENCIONAL'" [icon]="faTruck"></fa-icon>
+                  <fa-icon *ngIf="rotas.sexta_tarde && rotas.sexta_tarde !== 'X'" [icon]="faExclamationCircle"></fa-icon>
                 </td>
                 <td class="col-valores ui-resizable-column"
                   [style.color]="rotas.tipo_coleta  === 'SELETIVA' ? 'green' : 'blue'">
@@ -145,6 +156,7 @@
                   <fa-icon *ngIf="rotas.sabado_manha && rotas.tipo_coleta === 'SELETIVA'" [icon]="faRecycle"></fa-icon>
                   <fa-icon *ngIf="rotas.sabado_manha && rotas.tipo_coleta === 'CONVENCIONAL'" [icon]="faTruck">
                   </fa-icon>
+                  <fa-icon *ngIf="rotas.sabado_manha && rotas.sabado_manha !== 'X'" [icon]="faExclamationCircle"></fa-icon>
                 </td>
                 <td class="col-valores ui-resizable-column"
                   [style.color]="rotas.tipo_coleta  === 'SELETIVA' ? 'green' : 'blue'">
@@ -152,6 +164,7 @@
                   <fa-icon *ngIf="rotas.sabado_tarde && rotas.tipo_coleta === 'SELETIVA'" [icon]="faRecycle"></fa-icon>
                   <fa-icon *ngIf="rotas.sabado_tarde && rotas.tipo_coleta === 'CONVENCIONAL'" [icon]="faTruck">
                   </fa-icon>
+                  <fa-icon *ngIf="rotas.sabado_tarde && rotas.sabado_tarde !== 'X'" [icon]="faExclamationCircle"></fa-icon>
                 </td>
               </tr>
             </ng-template>
