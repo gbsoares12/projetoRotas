@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class UploadInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    if (req.url.indexOf('http://localhost:8080/upload') === -1) {
+    if (req.url.indexOf('https://rotas-lixo-ibirama-api.herokuapp.com/upload') === -1) {
       return next.handle(req);
     }
     const delay = 300; // TODO: inject delay?

@@ -19,7 +19,7 @@ export class AuthenticationService {
 
   authenticate(username: string, password: string) {
     const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
-    return this.httpClient.get<User>('http://localhost:8080/upload', { headers }).pipe(
+    return this.httpClient.get<User>('https://rotas-lixo-ibirama-api.herokuapp.com/upload', { headers }).pipe(
       map(
         userData => {
           sessionStorage.setItem('username', username);
