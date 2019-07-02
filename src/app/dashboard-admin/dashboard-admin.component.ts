@@ -1,13 +1,9 @@
-import { Component, OnInit, Input, Output, EventEmitter, Injectable } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { ModalService } from '../modal-login/index-modal';
 import { AuthenticationService } from '../service/authentication.service';
 import { DashboardAdminService } from './dashboard-admin.service';
 import { MessageService } from 'primeng/components/common/messageservice';
-
-@Injectable({
-  providedIn: 'root'
-})
 
 @Component({
   selector: 'app-dashboard-admin',

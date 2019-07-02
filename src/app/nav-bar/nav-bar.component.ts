@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+
 import { faTools } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -7,17 +8,15 @@ import { faTools } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./nav-bar.component.css']
 })
 
-export class NavBarComponent implements OnInit {
+export class NavBarComponent{
   faTools = faTools;
   modalVisible: boolean;
   constructor() { }
 
-  ngOnInit() {
-  }
   estadoAtualModal(estado: boolean) {
     this.modalVisible = estado;
   }
-  abrirModalLogin() {
+  abrirModalLogin(estado: boolean) {
     this.modalVisible = true;
   }
 

@@ -1,45 +1,42 @@
 <div style="display: none;" class="container">
-  <!-- Inicio Modal Login-->
-  <jw-modal id="dashboradAdmin">
-    <!-- Inicio corpo modal -->
-    <p-fieldset>
-      <p-header style="color: #11534c; padding-right: 5px;"><b>Login do Adminstrador</b></p-header>
-      <p-fieldset>
-        <p-header style="color: #11534c; padding-right: 5px;"><b>Atualizar a base de dados</b></p-header>
-        <div class="ui-g-12 ui-fluid">
-          <app-uploader></app-uploader>
-        </div>
-      </p-fieldset>
-      <div style="margin-left: 40%" class="row-2 ui-g-2 ui-fluid">
+    <!-- Inicio Modal Login-->
+    <jw-modal id="dashboradAdmin">
+        <!-- Inicio corpo modal -->
+        <p-fieldset>
+            <p-header style="color: #11534c; padding-right: 5px;"><b>Login do Adminstrador</b></p-header>
+            <p-fieldset>
+                <p-header style="color: #11534c; padding-right: 5px;"><b>Atualizar a base de dados</b></p-header>
+                <div class="ui-g-12 ui-fluid">
+                    <app-uploader></app-uploader>
+                </div>
+            </p-fieldset>
+            <div style="margin-left: 40%" class="row-2 ui-g-2 ui-fluid">
 
-        <button type="button" class="buttonLogin" pButton icon="pi pi-times" (click)="logout();" label="Sair"></button>
-      </div>
-    </p-fieldset>
-  </jw-modal>
+                <button type="button" class="buttonLogin" pButton icon="pi pi-times" (click)="logout();" label="Sair"></button>
+            </div>
+        </p-fieldset>
+    </jw-modal>
 </div>
 <p-toast position="bottom-right"></p-toast>
-<p-dialog header="Login do Adminstrador" [(visible)]="visible" (visibleChange)="fecharLogin($event);" modal="modal"
-  [style]="{width: '350px'}" [responsive]="true">
-  <div class="ui-g-12">
-    <h3 style="color:#11534c">Usuário</h3>
-    <span class="ui-float-label">
+<p-dialog header="Login do Adminstrador" [(visible)]="visible" (visibleChange)="fecharLogin($event);" modal="modal" [style]="{width: '350px'}" [responsive]="true">
+    <div class="ui-g-12">
+        <h3 style="color:#11534c">Usuário</h3>
+        <span class="ui-float-label">
       <input [(ngModel)]="username" id="float-input" type="text" size="30" pInputText>
       <label for="float-input">Usuário</label>
     </span>
-  </div>
-  <div class="ui-g-12">
-    <h3 style="color:#11534c">Senha</h3>
-    <span class="ui-float-label">
+    </div>
+    <div class="ui-g-12">
+        <h3 style="color:#11534c">Senha</h3>
+        <span class="ui-float-label">
       <input [(ngModel)]="password" id="float-input" type="password" size="30" pInputText>
       <label for="float-input">Senha</label>
     </span>
-  </div>
-  <p-footer>
-    <div class="ui-dialog-buttonpane ui-helper-clearfix">
-      <button type="button" pButton icon="pi pi-times" class="buttonLogin" (click)="fecharLogin();"
-        label="Sair"></button>
-      <button type="button" pButton icon="pi pi-check" class="buttonLogin" (click)="checkLogin();"
-        label="Entrar"></button>
     </div>
-  </p-footer>
+    <p-footer>
+        <div class="ui-dialog-buttonpane ui-helper-clearfix">
+            <button type="button" pButton icon="pi pi-times" class="buttonLogin" (click)="fecharLogin($event);" label="Sair"></button>
+            <button type="button" pButton icon="pi pi-check" class="buttonLogin" (click)="checkLogin();" label="Entrar"></button>
+        </div>
+    </p-footer>
 </p-dialog>
