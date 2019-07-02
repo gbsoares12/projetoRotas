@@ -59,8 +59,7 @@
                 "serve": {
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "options": {
-                        "browserTarget": "projetoRota:build",
-                        "proxyConfig": "proxy.config.js"
+                        "browserTarget": "projetoRota:build"
                     },
                     "configurations": {
                         "production": {
