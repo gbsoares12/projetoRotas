@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
 import { faTools } from '@fortawesome/free-solid-svg-icons';
-import { DashboardAdminService } from '../dashboard-admin/dashboard-admin.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -12,7 +10,7 @@ import { DashboardAdminService } from '../dashboard-admin/dashboard-admin.servic
 export class NavBarComponent implements OnInit {
   faTools = faTools;
   modalVisible: boolean;
-  constructor(private dashboardAdmService: DashboardAdminService) { }
+  constructor() { }
 
   ngOnInit() {
   }
