@@ -11,7 +11,6 @@ import { HttpErrorHandler } from './mensagens/http-error-handler.service';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MessageService } from './mensagens/message.service';
-import { MessagesComponent } from './mensagens/mensagens.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { ModalLoginComponent } from './modal-login/modal-login.component';
 import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.component';
@@ -46,8 +45,7 @@ import { DropdownModule } from 'primeng/dropdown';
     NavBarComponent,
     ModalLoginComponent,
     DashboardAdminComponent,
-    FooterComponent,
-    MessagesComponent
+    FooterComponent
   ],
   imports: [
     DropdownModule,
