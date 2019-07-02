@@ -1,8 +1,6 @@
-const proxy = [
-    {
-      context: '/api',
-      target: 'http://localhost:8080',
-      pathRewrite: {'^/api' : ''}
-    }
-  ];
-  module.exports = proxy;
+const proxy = [{
+    context: '/api',
+    target: 'https://rotas-lixo-ibirama-api.herokuapp.com',
+    pathRewrite: { '^/api': '' }
+}];
+module.exports = proxy;
