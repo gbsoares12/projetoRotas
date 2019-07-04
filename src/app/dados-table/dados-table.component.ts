@@ -23,6 +23,7 @@ export class DadosTableComponent implements OnInit, AfterContentChecked {
   teste: string[];
   bairroSelect: SelectItem[];
   bairros: Rota[];
+  bairroSelecionado: string[];
   tipoColetaSelecionada: string[];
   constructor(private rotasIbiramaService: RotasIbiramaService) {
     this.coleta = [{ label: 'Seletiva', value: 'SELETIVA' }, { label: 'Convencional', value: 'CONVENCIONAL' }];
@@ -48,9 +49,12 @@ export class DadosTableComponent implements OnInit, AfterContentChecked {
         }
       });
     }
-    this.bairros.forEach(rota => {
-      this.bairroSelect = [{ label: rota.bairro, value: rota.bairro }];
-    });
+    if (this.bairros !== undefined) {
+      this.bairros.forEach(rota => {
+        this.bairroSelect = [{ label: rota.bairro, value: rota.bairro }];
+      });
+    }
+
   }
 
 
