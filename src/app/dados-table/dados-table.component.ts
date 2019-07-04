@@ -16,7 +16,7 @@ export class DadosTableComponent implements OnInit, AfterContentChecked {
   faTruck = faTruck;
   faInfoCircle = faInfoCircle;
   faExclamationCircle = faExclamationCircle;
-  blockSpecial: RegExp = /^[<>*#!%&|=-_?:;.,'"`()$+¨/}{]+$/;
+  blockSpecial: RegExp = /^[^<>*#!%&|=-_?:;.,'"`()$+¨/}{]+$/;
   rotas: Rota[];
   rotasFormatadas: Rota[];
   coleta: SelectItem[];
