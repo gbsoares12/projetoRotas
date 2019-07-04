@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterContentChecked, AfterContentInit } from '@angular/core';
+import { Component, OnInit, AfterContentChecked } from '@angular/core';
 
 import { RotasIbiramaService } from './rotas-ibirama.service';
 import { Rota } from './Rota';
@@ -11,7 +11,7 @@ import { faRecycle, faTruck, faInfoCircle, faExclamationCircle } from '@fortawes
   providers: [RotasIbiramaService],
   styleUrls: ['./dados-table.component.css']
 })
-export class DadosTableComponent implements OnInit, AfterContentChecked, AfterContentInit {
+export class DadosTableComponent implements OnInit, AfterContentChecked {
   faRecycle = faRecycle;
   faTruck = faTruck;
   faInfoCircle = faInfoCircle;
@@ -34,7 +34,7 @@ export class DadosTableComponent implements OnInit, AfterContentChecked, AfterCo
     this.getRotas();
     this.getBairros();
   }
-  ngAfterContentInit(): void {
+  ngAfterContentChecked(): void {
     if (this.rotas !== undefined) {
       this.rotas.forEach(rota => {
         let novoNome: string;
@@ -49,10 +49,6 @@ export class DadosTableComponent implements OnInit, AfterContentChecked, AfterCo
         }
       });
     }
-  }
-
-  ngAfterContentChecked(): void {
-
   }
 
   montaSelectBairro(): void {
