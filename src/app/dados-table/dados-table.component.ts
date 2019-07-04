@@ -23,7 +23,7 @@ export class DadosTableComponent implements OnInit, AfterContentChecked {
   teste: string[];
   bairroSelect: SelectItem[];
   bairros: Rota[];
-  bairroSelecionado: string[];
+  bairroSelecionado: string;
   tipoColetaSelecionada: string[];
   constructor(private rotasIbiramaService: RotasIbiramaService) {
     this.coleta = [{ label: 'Seletiva', value: 'SELETIVA' }, { label: 'Convencional', value: 'CONVENCIONAL' }];
