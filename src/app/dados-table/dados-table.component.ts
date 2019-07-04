@@ -27,6 +27,7 @@ export class DadosTableComponent implements OnInit, AfterContentChecked {
   tipoColetaSelecionada: string[];
   constructor(private rotasIbiramaService: RotasIbiramaService) {
     this.coleta = [{ label: 'Seletiva', value: 'SELETIVA' }, { label: 'Convencional', value: 'CONVENCIONAL' }];
+    this.bairroSelect = [{label: 'Selecione um bairro', value: ''}];
   }
 
   ngOnInit() {
