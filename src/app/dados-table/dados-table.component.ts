@@ -72,7 +72,8 @@ export class DadosTableComponent implements OnInit, AfterContentChecked {
       .subscribe(bairros => this.bairros = bairros);
   }
 
-  pesquisar(nomeRua: string, bairro: string) {
+  pesquisar(nomeRua: string) {
+    let bairro: string;
     bairro = this.bairroSelecionado;
     console.log('Nome da rua: ' + nomeRua + ' bairro : ' + this.bairroSelecionado + ' Tipo coleta: ' + this.tipoColetaSelecionada);
     let tipoColeta: string;
