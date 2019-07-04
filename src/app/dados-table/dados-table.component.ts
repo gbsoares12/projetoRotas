@@ -75,6 +75,9 @@ export class DadosTableComponent implements OnInit, AfterContentChecked {
   pesquisar(nomeRua: string) {
     let bairro: string;
     bairro = this.bairroSelecionado;
+    if(this.bairroSelecionado === undefined){
+      bairro = '';
+    }
     console.log('Nome da rua: ' + nomeRua + ' bairro : ' + this.bairroSelecionado + ' Tipo coleta: ' + this.tipoColetaSelecionada);
     let tipoColeta: string;
     if (this.tipoColetaSelecionada) {
