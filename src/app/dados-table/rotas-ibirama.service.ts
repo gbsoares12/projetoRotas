@@ -9,7 +9,8 @@ import { Rota } from './Rota';
 
 @Injectable()
 export class RotasIbiramaService {
-  rotasUrl = 'https://rotas-lixo-ibirama-api.herokuapp.com/rotasIbirama';
+  //rotasUrl = 'https://rotas-lixo-ibirama-api.herokuapp.com/rotasIbirama';
+  rotasUrl = 'http://localhost:8080/rotasIbirama';
   private handleError: HandleError;
   constructor(
     private http: HttpClient,
@@ -25,11 +26,19 @@ export class RotasIbiramaService {
       );
   }
 
+  /** GET rotas from the server */
+  getBairros(): Observable<string[]> {
+    return this.http.get<string[]>(this.rotasUrl + '/bairros')
+      .pipe(
+        catchError(this.handleError('getRotas', []))
+      );
+  }
+
   montaFiltros(nomeRua: string, bairro: string, tipoColeta: string) {
     const options1 = nomeRua || bairro || tipoColeta ?
       { params: new HttpParams().append('rua', nomeRua).append('bairro', bairro).append('coleta', tipoColeta) } : {};
 
-    return this.http.get<Rota[]>(this.rotasUrl + '/filter', options1, )
+    return this.http.get<Rota[]>(this.rotasUrl + '/filter', options1)
       .pipe(
         catchError(this.handleError<Rota[]>('searchRotas', []))
       );

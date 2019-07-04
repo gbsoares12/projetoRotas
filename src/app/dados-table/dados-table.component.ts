@@ -12,6 +12,7 @@ import { faRecycle, faTruck, faInfoCircle, faExclamationCircle } from '@fortawes
   styleUrls: ['./dados-table.component.css']
 })
 export class DadosTableComponent implements OnInit, AfterContentChecked {
+
   faRecycle = faRecycle;
   faTruck = faTruck;
   faInfoCircle = faInfoCircle;
@@ -22,17 +23,19 @@ export class DadosTableComponent implements OnInit, AfterContentChecked {
   coleta: SelectItem[];
   teste: string[];
   bairroSelect: SelectItem[];
-  bairros: Rota[];
+  bairros: string[];
   bairroSelecionado: string;
   tipoColetaSelecionada: string[];
   constructor(private rotasIbiramaService: RotasIbiramaService) {
     this.coleta = [{ label: 'Seletiva', value: 'SELETIVA' }, { label: 'Convencional', value: 'CONVENCIONAL' }];
-    this.bairroSelect = [{label: 'Selecione um bairro', value: ''}];
+    this.bairroSelect = [{ label: 'Selecione um bairro', value: ' ' }];
   }
 
   ngOnInit() {
     this.getRotas();
+    this.getBairros();
   }
+
   ngAfterContentChecked(): void {
     if (this.rotas !== undefined) {
       this.rotas.forEach(rota => {
@@ -46,19 +49,32 @@ export class DadosTableComponent implements OnInit, AfterContentChecked {
           rota.nome_rua = novoNome;
           rota.descricao = descricaoFormatada[0];
         }
-        this.bairroSelect.push({ label: rota.bairro, value: rota.bairro });
       });
     }
   }
 
-
+  montaSelectBairro(): void {
+    if (this.bairros !== undefined) {
+      this.bairroSelect = [];
+      this.bairroSelect = [{ label: 'Selecione um bairro', value: ' ' }];
+      this.bairros.forEach(bairro => {
+        this.bairroSelect.push({ label: bairro, value: bairro });
+      });
+    }
+  }
   getRotas(): void {
     this.rotasIbiramaService.getRotas()
       .subscribe(rotas => this.rotas = rotas);
   }
 
-  pesquisar(nomeRua: string, bairro: string) {
+  getBairros(): void {
+    this.rotasIbiramaService.getBairros()
+      .subscribe(bairros => this.bairros = bairros);
+  }
 
+  pesquisar(nomeRua: string, bairro: string) {
+    bairro = this.bairroSelecionado;
+    console.log('Nome da rua: ' + nomeRua + ' bairro : ' + this.bairroSelecionado + ' Tipo coleta: ' + this.tipoColetaSelecionada);
     let tipoColeta: string;
     if (this.tipoColetaSelecionada) {
       if (this.tipoColetaSelecionada.length < 2) {
