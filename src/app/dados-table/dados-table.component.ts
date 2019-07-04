@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterContentChecked } from '@angular/core';
+import { Component, OnInit, AfterContentChecked, AfterViewInit } from '@angular/core';
 
 import { RotasIbiramaService } from './rotas-ibirama.service';
 import { Rota } from './Rota';
@@ -11,8 +11,7 @@ import { faRecycle, faTruck, faInfoCircle, faExclamationCircle } from '@fortawes
   providers: [RotasIbiramaService],
   styleUrls: ['./dados-table.component.css']
 })
-export class DadosTableComponent implements OnInit, AfterContentChecked {
-
+export class DadosTableComponent implements OnInit, AfterContentChecked, AfterViewInit {
   faRecycle = faRecycle;
   faTruck = faTruck;
   faInfoCircle = faInfoCircle;
@@ -35,8 +34,7 @@ export class DadosTableComponent implements OnInit, AfterContentChecked {
     this.getRotas();
     this.getBairros();
   }
-
-  ngAfterContentChecked(): void {
+  ngAfterViewInit(): void {
     if (this.rotas !== undefined) {
       this.rotas.forEach(rota => {
         let novoNome: string;
@@ -51,6 +49,10 @@ export class DadosTableComponent implements OnInit, AfterContentChecked {
         }
       });
     }
+  }
+
+  ngAfterContentChecked(): void {
+
   }
 
   montaSelectBairro(): void {
@@ -75,10 +77,9 @@ export class DadosTableComponent implements OnInit, AfterContentChecked {
   pesquisar(nomeRua: string) {
     let bairro: string;
     bairro = this.bairroSelecionado;
-    if(this.bairroSelecionado === undefined){
+    if (this.bairroSelecionado === undefined) {
       bairro = '';
     }
-    console.log('Nome da rua: ' + nomeRua + ' bairro : ' + this.bairroSelecionado + ' Tipo coleta: ' + this.tipoColetaSelecionada);
     let tipoColeta: string;
     if (this.tipoColetaSelecionada) {
       if (this.tipoColetaSelecionada.length < 2) {
@@ -90,7 +91,6 @@ export class DadosTableComponent implements OnInit, AfterContentChecked {
         this.getRotas();
       }
     }
-
     if (!nomeRua && !bairro && !tipoColeta) {
       this.getRotas();
     } else if (nomeRua || bairro || (this.tipoColetaSelecionada && this.tipoColetaSelecionada.length === 1)) {
