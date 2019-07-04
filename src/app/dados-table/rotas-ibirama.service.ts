@@ -25,6 +25,14 @@ export class RotasIbiramaService {
       );
   }
 
+  /** GET rotas from the server */
+  getBairros(): Observable<Rota[]> {
+    return this.http.get<Rota[]>(this.rotasUrl)
+      .pipe(
+        catchError(this.handleError('getRotas', []))
+      );
+  }
+
   montaFiltros(nomeRua: string, bairro: string, tipoColeta: string) {
     const options1 = nomeRua || bairro || tipoColeta ?
       { params: new HttpParams().append('rua', nomeRua).append('bairro', bairro).append('coleta', tipoColeta) } : {};

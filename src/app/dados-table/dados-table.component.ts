@@ -22,7 +22,7 @@ export class DadosTableComponent implements OnInit, AfterContentChecked {
   coleta: SelectItem[];
   teste: string[];
   bairroSelect: SelectItem[];
-  bairros: string[];
+  bairros: Rota[];
   tipoColetaSelecionada: string[];
   constructor(private rotasIbiramaService: RotasIbiramaService) {
     this.coleta = [{ label: 'Seletiva', value: 'SELETIVA' }, { label: 'Convencional', value: 'CONVENCIONAL' }];
@@ -30,6 +30,8 @@ export class DadosTableComponent implements OnInit, AfterContentChecked {
 
   ngOnInit() {
     this.getRotas();
+    this.getBairros();
+
   }
   ngAfterContentChecked(): void {
     if (this.rotas !== undefined) {
@@ -46,12 +48,20 @@ export class DadosTableComponent implements OnInit, AfterContentChecked {
         }
       });
     }
+    this.bairros.forEach(rota => {
+      this.bairroSelect = [{ label: rota.bairro, value: rota.bairro }];
+    });
   }
 
 
   getRotas(): void {
     this.rotasIbiramaService.getRotas()
       .subscribe(rotas => this.rotas = rotas);
+  }
+
+  getBairros(): void {
+    this.rotasIbiramaService.getBairros()
+      .subscribe(rotas => this.bairros = rotas);
   }
 
   pesquisar(nomeRua: string, bairro: string) {
