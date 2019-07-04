@@ -11,11 +11,11 @@
                 <p-header style="color: #11534c;"><b>Filtros</b></p-header>
                 <div class="row-1 ui-g-6 ui-fluid">
                     <label>Nome da rua</label>
-                    <input #nomeRua pInputText type="text" (keyup)="pesquisar(nomeRua.value, bairro.value)" name="nomeRua">
+                    <input #nomeRua pInputText type="text" (keyup)="pesquisar(nomeRua.value, bairroSelecionado)" name="nomeRua">
                 </div>
                 <div class="row-2 ui-g-6 ui-fluid">
                     <label>Bairro</label>
-                    <p-dropdown [options]="bairroSelect" [(ngModel)]="bairroSelecionado"></p-dropdown>
+                    <p-dropdown #bairro [options]="bairroSelect" [(ngModel)]="bairroSelecionado"></p-dropdown>
                     <!-- <input #bairro pInputText type="text" (keyup)="pesquisar(nomeRua.value, bairro.value)" [pKeyFilter]="blockSpecial" name="bairro"> -->
                 </div>
                 <div class="row-3 ui-g-6 ui-fluid">
