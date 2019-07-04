@@ -32,16 +32,10 @@ export class UploaderService {
 
     formData.append('file', file);
 
-    const req = new HttpRequest('POST', 'http://localhost:8080/upload', formData, {
+    const req = new HttpRequest('POST', 'https://rotas-lixo-ibirama-api.herokuapp.com/upload', formData, {
       headers,
       reportProgress: true
     });
-
-    /*
-    this.http.post('http://localhost:8080/upload', formData, httpOptions)
-      .toPromise()
-      .then(response => console.log(response));
-    */
 
     return this.http.request(req).pipe(
       map(event => this.getEventMessage(event, file)),
