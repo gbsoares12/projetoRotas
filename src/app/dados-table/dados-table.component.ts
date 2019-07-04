@@ -51,7 +51,7 @@ export class DadosTableComponent implements OnInit, AfterContentChecked {
     }
     if (this.bairros !== undefined) {
       this.bairros.forEach(rota => {
-        this.bairroSelect = [{ label: rota.bairro, value: rota.bairro }];
+        this.bairroSelect.push({ label: rota.bairro, value: rota.bairro });
       });
     }
 
