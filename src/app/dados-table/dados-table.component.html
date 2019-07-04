@@ -13,6 +13,7 @@
                     <label>Nome da rua</label>
                     <input #nomeRua pInputText type="text" (keyup)="pesquisar(nomeRua.value, bairroSelecionado)" name="nomeRua">
                 </div>
+
                 <div class="row-2 ui-g-6 ui-fluid">
                     <label>Bairro</label>
                     <p-dropdown #bairro [options]="bairroSelect" [(ngModel)]="bairroSelecionado"></p-dropdown>

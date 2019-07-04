@@ -32,8 +32,6 @@ export class DadosTableComponent implements OnInit, AfterContentChecked {
 
   ngOnInit() {
     this.getRotas();
-    this.getBairros();
-
   }
   ngAfterContentChecked(): void {
     if (this.rotas !== undefined) {
@@ -48,25 +46,15 @@ export class DadosTableComponent implements OnInit, AfterContentChecked {
           rota.nome_rua = novoNome;
           rota.descricao = descricaoFormatada[0];
         }
-      });
-    }
-    if (this.bairros !== undefined) {
-      this.bairros.forEach(rota => {
         this.bairroSelect.push({ label: rota.bairro, value: rota.bairro });
       });
     }
-
   }
 
 
   getRotas(): void {
     this.rotasIbiramaService.getRotas()
       .subscribe(rotas => this.rotas = rotas);
-  }
-
-  getBairros(): void {
-    this.rotasIbiramaService.getBairros()
-      .subscribe(rotas => this.bairros = rotas);
   }
 
   pesquisar(nomeRua: string, bairro: string) {
