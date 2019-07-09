@@ -15,6 +15,7 @@ export class DadosTableComponent implements OnInit, AfterContentChecked {
   faTruck = faTruck;
   faInfoCircle = faInfoCircle;
   faCircleNotch = faCircleNotch;
+  
   faExclamationCircle = faExclamationCircle;
   rotas: Rota[];
   coleta: SelectItem[];
