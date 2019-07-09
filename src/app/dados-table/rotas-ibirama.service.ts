@@ -10,7 +10,7 @@ import { Rota } from './Rota';
 @Injectable()
 export class RotasIbiramaService {
   rotasUrl = 'https://rotas-lixo-ibirama-api.herokuapp.com/rotasIbirama';
- 
+
   private handleError: HandleError;
   constructor(
     private http: HttpClient,

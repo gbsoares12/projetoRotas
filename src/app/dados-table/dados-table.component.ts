@@ -15,7 +15,7 @@ export class DadosTableComponent implements OnInit, AfterContentChecked {
   faTruck = faTruck;
   faInfoCircle = faInfoCircle;
   faCircleNotch = faCircleNotch;
-  
+
   faExclamationCircle = faExclamationCircle;
   rotas: Rota[];
   coleta: SelectItem[];
@@ -71,19 +71,22 @@ export class DadosTableComponent implements OnInit, AfterContentChecked {
       }
     }
     if (this.rotasFormatadas !== undefined && this.rotasFormatadas !== null) {
-        this.rotasFormatadas.forEach(rota => {
-          let novoNome: string;
-          let novaDescricao: string;
-          const arrayNome = rota.nome_rua.split('(');
-          if (arrayNome.length > 1) {
-            const descricaoFormatada = arrayNome[1].split(')');
-            novoNome = arrayNome[0];
-            novaDescricao = arrayNome[1];
-            rota.nome_rua = novoNome;
-            rota.descricao = descricaoFormatada[0];
-          }
-        });
+      this.rotasFormatadas.forEach(rota => {
+        let novoNome: string;
+        let novaDescricao: string;
+        const arrayNome = rota.nome_rua.split('(');
+        if (arrayNome.length > 1) {
+          const descricaoFormatada = arrayNome[1].split(')');
+          novoNome = arrayNome[0];
+          novaDescricao = arrayNome[1];
+          rota.nome_rua = novoNome;
+          rota.descricao = descricaoFormatada[0];
+        }
+      });
+      this.rotasFormatadas.sort();
     }
+
+
   }
   getRotas(): void {
     this.rotasIbiramaService.getRotas()
@@ -100,6 +103,7 @@ export class DadosTableComponent implements OnInit, AfterContentChecked {
         this.ruasSelect.push({ label: rota.nome_rua, value: rota.nome_rua });
       }
     });
+    this.ruasSelect.sort();
     this.rotasFormatadas = [];
     this.rotas.forEach(rota => {
       if (rota.bairro === this.bairroSelecionado) {
@@ -113,11 +117,16 @@ export class DadosTableComponent implements OnInit, AfterContentChecked {
   }
   pesquisarRuaBairro(): void {
     this.rotasFormatadas = [];
-    this.rotas.forEach(rota => {
-      if (rota.nome_rua === this.ruaSelecionada) {
-        this.rotasFormatadas.push(rota);
-      }
-    });
+    if (this.ruaSelecionada !== ' ') {
+      this.rotas.forEach(rota => {
+        if (rota.nome_rua === this.ruaSelecionada && this.bairroSelecionado === rota.bairro) {
+          this.rotasFormatadas.push(rota);
+        }
+      });
+    } else {
+      this.pesquisar();
+    }
+    this.rotasFormatadas.sort();
   }
   pesquisar(): void {
     let bairro: string;
