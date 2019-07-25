@@ -73,7 +73,14 @@
                                 <td class="col-nomeRua" colspan="2">
                                     <span class="ui-column-title">Nome da Rua:</span>
                                     <span><b>{{rotasFormatadas.nome_rua}} </b></span>
-                                    <fa-icon tooltipStyleClass="testeTooltip" pTooltip="{{rotasFormatadas.descricao}}" tooltipPosition="right" *ngIf="rotasFormatadas.descricao" style="color: #9aca48" [icon]="faInfoCircle"></fa-icon>
+                                    <!--tooltipStyleClass="testeTooltip" pTooltip="{{rotasFormatadas.descricao}}" tooltipPosition="right"-->
+                                    <a (click)="inforAdc.toggle($event)" *ngIf="rotasFormatadas.descricao">
+                                        <fa-icon style="color: #9aca48" [icon]="faInfoCircle"></fa-icon>
+
+                                        <p-overlayPanel styleClass="informacao-adicional" appendTo="body" #inforAdc>
+                                            <b>{{rotasFormatadas.descricao}}</b>
+                                        </p-overlayPanel>
+                                    </a>
                                 </td>
                                 <td class="col-valores" [style.color]="rotasFormatadas.tipo_coleta === 'SELETIVA' ? 'green' : 'blue'">
                                     <span class="ui-column-title">Segunda Manhã:</span>

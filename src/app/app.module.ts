@@ -31,6 +31,7 @@ import { AccordionModule } from 'primeng/accordion';
 import { DialogModule } from 'primeng/dialog';
 import { ToastModule } from 'primeng/toast';
 import { DropdownModule } from 'primeng/dropdown';
+import { OverlayPanelModule } from 'primeng/overlaypanel';
 
 
 
@@ -65,7 +66,8 @@ import { DropdownModule } from 'primeng/dropdown';
     BrowserAnimationsModule,
     FontAwesomeModule,
     AccordionModule,
-    DialogModule
+    DialogModule,
+    OverlayPanelModule
   ],
   providers: [
     HttpErrorHandler,

@@ -1,4 +1,4 @@
-<div style="display: none;" class="container">
+<div style="display: none;">
     <!-- Inicio Modal Login-->
     <jw-modal id="dashboradAdmin">
         <!-- Inicio corpo modal -->
@@ -35,7 +35,7 @@
     </div>
     <p-footer>
         <div class="ui-dialog-buttonpane ui-helper-clearfix">
-            <button type="button" pButton icon="pi pi-times" class="buttonLogin" (click)="fecharLogin($event);" label="Sair"></button>
+            <button type="button" pButton icon="pi pi-times" class="buttonLogin" (click)="fecharLogin(false);" label="Sair"></button>
             <button type="button" pButton icon="pi pi-check" class="buttonLogin" (click)="checkLogin();" label="Entrar"></button>
         </div>
     </p-footer>

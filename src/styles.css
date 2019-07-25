@@ -29,6 +29,12 @@ body {
     color: #16645c !important;
 }
 
+.informacao-adicional {
+    border: 1px solid #9aca48;
+    background-color: whitesmoke;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 
 /* Login/Admin */
 
@@ -157,9 +163,6 @@ jw-modal .jw-modal {
 
 jw-modal .jw-modal .jw-modal-body {
     padding: 20px;
-    background: #fff;
-    /* margin exposes part of the modal background */
-    margin: 40px;
 }
 
 jw-modal .jw-modal-background {

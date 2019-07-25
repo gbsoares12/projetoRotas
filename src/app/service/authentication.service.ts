@@ -13,13 +13,17 @@ export class User {
   providedIn: 'root'
 })
 export class AuthenticationService {
-
-  constructor(private httpClient: HttpClient) { }
+  url: string;
+  constructor(private httpClient: HttpClient) {
+    this.url = 'https://rotas-lixo-ibirama-api.herokuapp.com/upload';
+    //this.url = 'http://localhost:8080/upload';
+  }
 
 
   authenticate(username: string, password: string) {
+
     const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
-    return this.httpClient.get<User>('https://rotas-lixo-ibirama-api.herokuapp.com/upload', { headers }).pipe(
+    return this.httpClient.get<User>(this.url, { headers }).pipe(
       map(
         userData => {
           sessionStorage.setItem('username', username);

@@ -3,7 +3,7 @@ import { Component, OnInit, AfterContentChecked } from '@angular/core';
 import { RotasIbiramaService } from './rotas-ibirama.service';
 import { Rota } from './Rota';
 import { SelectItem } from 'primeng/components/common/selectitem';
-import { faRecycle, faTruck, faInfoCircle, faExclamationCircle, faThumbsDown, faCircleNotch } from '@fortawesome/free-solid-svg-icons';
+import { faRecycle, faTruck, faInfoCircle, faExclamationCircle, faCircleNotch } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-dados-table',
   templateUrl: './dados-table.component.html',
@@ -85,8 +85,6 @@ export class DadosTableComponent implements OnInit, AfterContentChecked {
       });
       this.rotasFormatadas.sort();
     }
-
-
   }
   getRotas(): void {
     this.rotasIbiramaService.getRotas()
