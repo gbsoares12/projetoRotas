@@ -10,17 +10,17 @@
             <p-fieldset [toggleable]="true">
                 <p-header style="color: #11534c;"><b>Filtros</b></p-header>
 
-                <div style="margin-left: 26%" class="row-2 ui-g-6 ui-fluid">
+                <div style="margin-left: 16%" class="row-2 ui-g-8 ui-fluid">
                     <label>Bairro</label>
                     <p-dropdown #bairro (onChange)="pesquisarRua();" [options]="bairroSelect" [(ngModel)]="bairroSelecionado"></p-dropdown>
                 </div>
 
-                <div style="margin-left: 26%" class="row-3 ui-g-6 ui-fluid">
+                <div style="margin-left: 16%" class="row-3 ui-g-8 ui-fluid">
                     <label>Nome da rua</label>
                     <p-dropdown #nomeRua (onChange)="pesquisarRuaBairro();" [options]="ruasSelect" [(ngModel)]="ruaSelecionada"></p-dropdown>
                 </div>
 
-                <div style="margin-left: 26%" class="row-4 ui-g-6 ui-fluid">
+                <div style="margin-left: 16%" class="row-4 ui-g-8 ui-fluid">
                     <label>Tipo coleta</label>
                     <p-selectButton [options]="coleta" (onClick)="pesquisar()" multiple="multiple" [(ngModel)]="tipoColetaSelecionada"></p-selectButton>
                 </div>
