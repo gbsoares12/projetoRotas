@@ -118,13 +118,30 @@ export class DadosTableComponent implements OnInit, AfterContentChecked {
     }
   }
   pesquisarRuaBairro(): void {
+    let tipoColeta: string;
+    if (this.tipoColetaSelecionada) {
+      if (this.tipoColetaSelecionada.length === 1) {
+        tipoColeta = this.tipoColetaSelecionada[0];
+      } else {
+        tipoColeta = 'undefined';
+      }
+    }
     this.rotasFormatadas = [];
     if (this.ruaSelecionada !== ' ') {
-      this.rotas.forEach(rota => {
-        if (rota.nome_rua === this.ruaSelecionada && this.bairroSelecionado === rota.bairro) {
-          this.rotasFormatadas.push(rota);
-        }
-      });
+      if (tipoColeta !== 'undefined') {
+        this.rotas.forEach(rota => {
+          if (rota.nome_rua === this.ruaSelecionada && this.bairroSelecionado === rota.bairro && rota.tipo_coleta === tipoColeta) {
+            this.rotasFormatadas.push(rota);
+          }
+        });
+      } else {
+        this.rotas.forEach(rota => {
+          if (rota.nome_rua === this.ruaSelecionada && this.bairroSelecionado === rota.bairro) {
+            this.rotasFormatadas.push(rota);
+          }
+        });
+      }
+
     } else {
       this.pesquisar();
     }
