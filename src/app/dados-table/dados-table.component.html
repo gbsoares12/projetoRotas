@@ -22,7 +22,7 @@
 
                 <div style="margin-left: 16%" class="row-4 ui-g-8 ui-fluid">
                     <label>Tipo coleta</label>
-                    <p-selectButton [options]="coleta" (onClick)="pesquisar()" multiple="multiple" [(ngModel)]="tipoColetaSelecionada"></p-selectButton>
+                    <p-selectButton [options]="coleta" (onChange)="pesquisar()" multiple="multiple" [(ngModel)]="tipoColetaSelecionada"></p-selectButton>
                 </div>
             </p-fieldset>
         </div>
