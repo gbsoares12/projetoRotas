@@ -26,7 +26,7 @@ export class RotasIbiramaService {
       );
   }
 
-  /** GET rotas from the server */
+  /** GET bairros from the server */
   getBairros(): Observable<string[]> {
     return this.http.get<string[]>(this.rotasUrl + '/bairros')
       .pipe(
