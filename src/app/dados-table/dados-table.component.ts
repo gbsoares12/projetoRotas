@@ -90,6 +90,10 @@ export class DadosTableComponent implements OnInit, AfterContentChecked {
     this.rotasIbiramaService.getRotas()
       .subscribe(rotas => this.rotas = rotas);
   }
+  getRotasFormatadas(): void {
+    this.rotasIbiramaService.getRotas()
+      .subscribe(rotas => this.rotasFormatadas = rotas);
+  }
   getBairros(): void {
     this.rotasIbiramaService.getBairros()
       .subscribe(bairros => this.bairros = bairros);
@@ -139,15 +143,18 @@ export class DadosTableComponent implements OnInit, AfterContentChecked {
       nomeRua = '';
     }
     if (this.tipoColetaSelecionada) {
-      if (this.tipoColetaSelecionada.length < 2) {
+      if (this.tipoColetaSelecionada.length === 1) {
         tipoColeta = this.tipoColetaSelecionada[0];
       } else {
         tipoColeta = 'undefined';
       }
     }
-    if (nomeRua || bairro || (this.tipoColetaSelecionada && this.tipoColetaSelecionada.length === 1)) {
+    if (nomeRua || bairro || tipoColeta !== 'undefined') {
+      console.log('Bairro: ' + bairro + ' | Nome da rua: ' + nomeRua + ' | Tipo coleta: ' + tipoColeta);
       this.rotasIbiramaService.montaFiltros(nomeRua, bairro, tipoColeta)
         .subscribe(rotas => this.rotasFormatadas = rotas, error => console.error(error));
+    } else {
+      this.getRotasFormatadas();
     }
   }
 }
