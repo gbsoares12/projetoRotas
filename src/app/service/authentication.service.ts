@@ -16,7 +16,6 @@ export class AuthenticationService {
   url: string;
   constructor(private httpClient: HttpClient) {
     this.url = 'https://rotas-lixo-ibirama-api.herokuapp.com/upload';
-    //this.url = 'http://localhost:8080/upload';
   }
 
 
@@ -27,7 +26,7 @@ export class AuthenticationService {
       map(
         userData => {
           sessionStorage.setItem('username', username);
-          let authString = 'Basic ' + btoa(username + ':' + password);
+          const authString = 'Basic ' + btoa(username + ':' + password);
           sessionStorage.setItem('basicauth', authString);
           return userData;
         }
@@ -37,12 +36,12 @@ export class AuthenticationService {
   }
 
   isUserLoggedIn() {
-    let user = sessionStorage.getItem('username')
-    console.log(!(user === null))
-    return !(user === null)
+    const user = sessionStorage.getItem('username');
+    console.log(!(user === null));
+    return !(user === null);
   }
 
   logOut() {
-    sessionStorage.removeItem('username')
+    sessionStorage.removeItem('username');
   }
 }
