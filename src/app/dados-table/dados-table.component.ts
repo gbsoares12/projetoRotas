@@ -123,12 +123,12 @@ export class DadosTableComponent implements OnInit, AfterContentChecked {
       if (this.tipoColetaSelecionada.length === 1) {
         tipoColeta = this.tipoColetaSelecionada[0];
       } else {
-        tipoColeta = 'undefined';
+        tipoColeta = undefined;
       }
     }
     this.rotasFormatadas = [];
     if (this.ruaSelecionada !== ' ') {
-      if (tipoColeta !== 'undefined') {
+      if (tipoColeta !== undefined) {
         this.rotas.forEach(rota => {
           if (rota.nome_rua === this.ruaSelecionada && this.bairroSelecionado === rota.bairro && rota.tipo_coleta === tipoColeta) {
             this.rotasFormatadas.push(rota);
