@@ -44,7 +44,7 @@ export class DadosTableComponent implements OnInit, AfterContentChecked {
   montaSelectBairros(): void {
     if (this.bairros !== undefined) {
       if (!this.bairroSelect) {
-        this.bairroSelect = [{ label: 'Selecione', value: ' ' }];
+        this.bairroSelect = [{ label: 'Selecione', value: '' }];
         this.bairros.forEach(bairro => {
           this.bairroSelect.push({ label: bairro, value: bairro });
         });
@@ -107,7 +107,7 @@ export class DadosTableComponent implements OnInit, AfterContentChecked {
         tipoColeta = undefined;
       }
     }
-    this.ruasSelect = [{ label: 'Selecione', value: ' ' }];
+    this.ruasSelect = [{ label: 'Selecione', value: '' }];
     this.rotas.forEach(rota => {
       if (rota.bairro === this.bairroSelecionado) {
         this.ruasSelect.push({ label: rota.nome_rua, value: rota.nome_rua });
@@ -121,7 +121,7 @@ export class DadosTableComponent implements OnInit, AfterContentChecked {
       }
     });
     this.ruaSelecionada = undefined;
-    if (this.bairroSelecionado === ' ' && this.tipoColetaSelecionada === undefined) {
+    if (this.bairroSelecionado === '' && this.tipoColetaSelecionada === undefined) {
       this.getRotasFormatadas();
     } else {
       this.pesquisar();
@@ -137,7 +137,7 @@ export class DadosTableComponent implements OnInit, AfterContentChecked {
       }
     }
     this.rotasFormatadas = [];
-    if (this.ruaSelecionada !== ' ') {
+    if (this.ruaSelecionada !== '') {
       if (tipoColeta !== undefined) {
         this.rotas.forEach(rota => {
           if (rota.nome_rua === this.ruaSelecionada && this.bairroSelecionado === rota.bairro && rota.tipo_coleta === tipoColeta) {
@@ -177,13 +177,12 @@ export class DadosTableComponent implements OnInit, AfterContentChecked {
       if (this.tipoColetaSelecionada.length === 1) {
         tipoColeta = this.tipoColetaSelecionada[0];
       } else {
-        tipoColeta = 'undefined';
+        tipoColeta = undefined;
       }
     }
-    if (nomeRua === '' && bairro === '' && tipoColeta === 'undefined') {
+    if (nomeRua === '' && bairro === '' && tipoColeta === undefined) {
       this.getRotasFormatadas();
-    } else if (nomeRua || bairro || tipoColeta !== 'undefined') {
-      console.log('Bairro: ' + bairro + ' | Nome da rua: ' + nomeRua + ' | Tipo coleta: ' + tipoColeta);
+    } else if (nomeRua || bairro || tipoColeta !== undefined) {
       this.rotasIbiramaService.montaFiltros(nomeRua, bairro, tipoColeta)
         .subscribe(rotas => this.rotasFormatadas = rotas, error => console.error(error));
     } else {
