@@ -113,7 +113,9 @@ export class DadosTableComponent implements OnInit, AfterContentChecked {
       }
     });
     this.ruaSelecionada = undefined;
-    if (this.bairroSelecionado === ' ') {
+    if (this.bairroSelecionado === ' ' && this.tipoColetaSelecionada === undefined) {
+      this.getRotasFormatadas();
+    } else {
       this.pesquisar();
     }
   }
@@ -143,7 +145,11 @@ export class DadosTableComponent implements OnInit, AfterContentChecked {
       }
 
     } else {
-      this.pesquisar();
+      this.rotas.forEach(rota => {
+        if (this.bairroSelecionado === rota.bairro) {
+          this.rotasFormatadas.push(rota);
+        }
+      });
     }
     this.rotasFormatadas.sort();
   }
