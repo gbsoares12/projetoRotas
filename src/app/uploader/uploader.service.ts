@@ -28,7 +28,7 @@ export class UploaderService {
       Authorization: user
     });
 
-    const formData = new FormData(); // Por que o form data ta vazio?
+    const formData = new FormData();
 
     formData.append('file', file);
 

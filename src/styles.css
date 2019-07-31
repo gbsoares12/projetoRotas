@@ -50,8 +50,16 @@ body {
 
 .ui-widget-header {
     background: linear-gradient(to bottom, #86bf25 0%, #11534c 100%) !important;
-    color: #cee0b0;
     border: 1px solid #16645c;
+}
+
+.ui-paginator .ui-paginator-current,
+.ui-paginator .ui-paginator-rpp-options {
+    border: #16645c 1px solid;
+    background-color: whitesmoke;
+    margin-left: 1em;
+    margin-right: 1em;
+    background-image: none;
 }
 
 

@@ -6,7 +6,7 @@
             <h1>Rota de coleta de lixo - Ibirama, Santa Catarina</h1>
         </div>
         <div class="ui-g-12">
-            <p-fieldset [toggleable]="true">
+            <p-fieldset [toggleable]="true" [collapsed]="true">
                 <p-header style="color: #11534c;"><b>Filtros</b></p-header>
 
                 <div style="margin-left: 16%" class="row-2 ui-g-8 ui-fluid">
@@ -31,7 +31,7 @@
             <div class="ui-g-12 ui-fluid">
                 <p-fieldset [toggleable]="true">
                     <p-header style="color: #11534c; padding-right: 5px;"><b>Rotas</b></p-header>
-                    <p-table [resetPageOnSort]="true" [alwaysShowPaginator]="1" [value]="rotasFormatadas" [paginator]="true" [rows]="5" [responsive]="true">
+                    <p-table [reorderableColumns]="true" [alwaysShowPaginator]="false" [value]="rotasFormatadas" [paginator]="true" [rows]="5" [responsive]="true">
                         <ng-template pTemplate="header">
                             <tr>
                                 <th colspan="14">Rotas Coleta de lixo - Ibirama</th>
