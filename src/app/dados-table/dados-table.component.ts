@@ -32,6 +32,7 @@ export class DadosTableComponent implements OnInit, AfterContentChecked {
   tamanhoRotasFormatadas: any;
   constructor(private rotasIbiramaService: RotasIbiramaService) {
     this.coleta = [{ label: 'Seletiva', value: 'SELETIVA' }, { label: 'Convencional', value: 'CONVENCIONAL' }];
+    this.ruasSelect = [{ label: 'Selecione um bairro', value: '' }];
   }
   ngOnInit() {
     this.getRotas();
@@ -125,6 +126,9 @@ export class DadosTableComponent implements OnInit, AfterContentChecked {
       this.getRotasFormatadas();
     } else {
       this.pesquisar();
+    }
+    if (this.ruasSelect.length < 2) {
+      this.ruasSelect = [{ label: 'Selecione um bairro', value: '' }];
     }
   }
   pesquisarRuaBairro(): void {
