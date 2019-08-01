@@ -118,23 +118,41 @@ label {
         width: 1000px;
         margin: 0 auto;
     }
-}
-
-@media (max-width: 730px) {
-    .logo-a {
-        padding-left: 35% !important;
+    .menu-informativos-lg {
+        margin-left: 8px;
     }
 }
 
-@media (max-width: 900px) and (min-width: 731px) {
+
+/* @media da logo */
+
+@media (max-width: 321px) {
     .logo-a {
-        padding-left: 50% !important;
+        padding-left: 36% !important;
+    }
+}
+
+@media (max-width: 399px) and (min-width: 322px) {
+    .logo-a {
+        padding-left: 40% !important;
     }
 }
 
 @media (max-width: 500px) and (min-width: 400px) {
     .logo-a {
         padding-left: 43% !important;
+    }
+}
+
+@media (max-width: 900px) and (min-width: 731px) {
+    .logo-a {
+        padding-left: 53% !important;
+    }
+}
+
+@media (max-width: 1200px) and (min-width: 901px) {
+    .logo-a {
+        padding-left: 57% !important;
     }
 }
 
@@ -214,6 +232,7 @@ jw-modal .jw-modal-background {
 
 .fundoNavBar {
     background-image: url("../bg_header.jpg");
+    width: 100%;
 }
 
 .navbar {
