@@ -120,6 +120,28 @@ label {
     }
 }
 
+@media (max-width: 730px) {
+    .logo-a {
+        padding-left: 35% !important;
+    }
+}
+
+@media (max-width: 900px) and (min-width: 731px) {
+    .logo-a {
+        padding-left: 50% !important;
+    }
+}
+
+@media (max-width: 500px) and (min-width: 400px) {
+    .logo-a {
+        padding-left: 43% !important;
+    }
+}
+
+.logo-a {
+    padding-left: 60%;
+}
+
 .col-nomeRua {
     width: 400px;
     text-align: left;
@@ -202,6 +224,7 @@ jw-modal .jw-modal-background {
 
 .navbar-toggle {
     color: aliceblue;
+    margin-left: 5%;
 }
 
 .logoPrefeitura {

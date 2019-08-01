@@ -193,7 +193,6 @@ export class DadosTableComponent implements OnInit, AfterContentChecked {
     if (nomeRua === '' && bairro === '' && tipoColeta === undefined) {
       this.getRotasFormatadas();
     } else if (nomeRua || bairro || tipoColeta !== undefined) {
-      console.log('Bairro: ' + bairro + ' | Nome da rua: ' + nomeRua + ' | Tipo coleta: ' + tipoColeta);
       this.rotasIbiramaService.montaFiltros(nomeRua, bairro, tipoColeta)
         .subscribe(rotas => this.rotasFormatadas = rotas, error => console.error(error));
     } else {
